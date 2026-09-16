@@ -1,0 +1,1467 @@
+[
+  {
+    "id": 1,
+    "name": "Salesforce",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the use of OAuth 2.0 for authentication (Original Source 2, Independent Source 1, Independent Source 2, Independent Source 7). The independent source 1 explicitly details using 'OAuth 2.0 token operations' and mentions 'Bearer {access_token}'."
+      },
+      "access_type": {
+        "status": "unsupported",
+        "reason": "While multiple sources describe the process of obtaining credentials (e.g., Connected App setup, OAuth flows), there is no definitive evidence confirming that access is purely self-serve without any potential developer registration, approval, or paid plan requirements."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "The researcher claims both REST and GraphQL are supported. While independent sources 4, 5, and 6 confirm the existence of a GraphQL API, multiple official and third-party sources (Original Source 1, Independent Source 3) focus heavily on and provide detailed guides for the REST API. Given the conflicting emphasis and lack of definitive proof that both protocols are equally primary/current based solely on the provided evidence, and since the researcher listed them as types, we must correct to reflect only what is strongly supported by official documentation (REST). However, because GraphQL is also documented in official developer guides (Independent Source 4), we will list both but note the contradiction regarding which is more central. Since the prompt requires correction if contradicted, and evidence supports both protocols existing, we will rely on the most comprehensive listing of available APIs from Original Source 3: REST API, GraphQL API, Bulk 2.0 API, and Streaming API (CometD). We correct to list all confirmed types."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Independent Source 10 mentions 'Mobile SDK' for iOS, Windows, and Android, indicating official client libraries are available. Independent Source 12 provides a guide on Mobile SDK Development."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 3, Independent Source 8) confirm that Salesforce APIs cover a wide range of use cases including Lead Management, Contact & Account Sync, Opportunity Tracking, Custom Objects, and Activity Logging, indicating broad API coverage."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple official sources (Original Source 4, Original Source 5, Independent Source 13) confirm that Salesforce implements the Model Context Protocol (MCP), and specifically mention 'Hosted MCP Servers' as an official feature."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "Multiple sources provide detailed step-by-step guides, including code examples (Python/cURL) and setup instructions for obtaining credentials and making API calls, confirming the platform is buildable."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "The researcher stated 'None' as a blocker. No evidence contradicts this claim; therefore, we mark it supported based on the lack of identified blockers in the provided context."
+      }
+    },
+    "corrections": {
+      "api_types": [
+        "REST",
+        "GraphQL",
+        "Bulk 2.0 API",
+        "Streaming API (CometD)"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "name": "HubSpot",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources confirm support for OAuth (Source 1, 2, 3, Independent Source 1, 3), Private App access tokens/Static auth (Source 3, Independent Source 1), and Developer API keys (Source 3, Independent Source 2). The combination of these methods is supported by the evidence."
+      },
+      "access_type": {
+        "status": "unsupported",
+        "reason": "While documentation exists for obtaining credentials (e.g., OAuth setup, creating Private Apps), there is no definitive evidence confirming that access is universally self-serve without requiring specific admin permissions or account setup steps."
+      },
+      "api_types": {
+        "status": "supported",
+        "reason": "The researcher correctly identifies both REST and GraphQL APIs. Source 4 explicitly states the platform offers both REST and GraphQL APIs, and Independent Source 4 confirms this by mentioning 'broad v3 REST API plus a CRM GraphQL API'."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Independent Sources 12 and 11 show official SDKs for multiple languages (Node.js, Python, Java, etc.), confirming that official client libraries are available."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "Multiple sources describe HubSpot as a comprehensive platform covering CRM objects, marketing, and sales pipelines (Source 1, Source 4, Independent Source 4), supporting the 'broad' classification."
+      },
+      "mcp_status": {
+        "status": "contradicted",
+        "reason": "The researcher claims MCP status is 'official'. While HubSpot has documentation about an official MCP server (Source 5) and third parties reference it, Independent Source 13 shows that the specific implementation used by Leena AI connects to a remote URL (`https://mcp.hubspot.com`) which suggests the service is managed externally or through a specialized connector, rather than being a core, self-contained 'official' feature status within HubSpot itself."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The existence of comprehensive developer documentation (Source 6) and multiple SDKs/authentication methods confirms that developers can realistically build integrations."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "Multiple sources indicate the absence of major blockers, focusing instead on how to implement features or manage credentials."
+      }
+    },
+    "corrections": {
+      "mcp_status": "third_party"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Pipedrive",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 4, Independent Source 1, Independent Source 2) confirm that Pipedrive supports both OAuth 2.0 and API Token authentication methods."
+      },
+      "access_type": {
+        "status": "contradicted",
+        "reason": "The researcher claims access is 'paid_plan' based on Original Source 5, which mentions a paid plan starting at $14/month. However, Independent Source 6 explicitly states that API access is included on all plans, including Lite ($14/month per seat), suggesting it is not restricted solely to higher-tier paid plans for basic use."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "The researcher claims both REST and GraphQL are available. While Pipedrive provides a REST API (Original Source 2, Independent Source 2), multiple independent sources (Independent Source 6, Independent Source 5) explicitly state that there is no official GraphQL endpoint provided by the company; any GraphQL schema found is conceptual or third-party."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Multiple sources confirm official client libraries are available for Node.js and PHP (Original Source 6, Independent Source 11, Independent Source 12)."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The evidence confirms Pipedrive covers a broad range of CRM entities including deals, persons, organizations, activities, leads, and products (Original Source 2, Independent Source 8, Independent Source 11)."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple sources confirm that Pipedrive offers an official Model Context Protocol (MCP) Connector/Server, which is available directly from the company and integrated into platforms like Claude (Original Source 7, Independent Source 13, Independent Source 15)."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The documentation provides clear steps for developers to register applications, obtain credentials, and implement both OAuth 2.0 and API Token flows, making it buildable."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No evidence suggests any technical or procedural blocker preventing a developer from integrating with the Pipedrive API using the documented methods."
+      }
+    },
+    "corrections": {
+      "access_type": "self_serve",
+      "api_types": [
+        "REST"
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "name": "Twenty",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 3, Independent Source 1, Independent Source 2, Independent Source 9) confirm that API keys are used for authentication and require the Bearer token scheme in the Authorization header."
+      },
+      "access_type": {
+        "status": "supported",
+        "reason": "Multiple sources (Independent Source 1, Independent Source 2, Independent Source 9) describe generating an API key through the application's settings (Settings > Developers or Settings \u2192 API & Webhooks), which is characteristic of self-serve access."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "While multiple sources confirm that both REST and GraphQL APIs are available (Original Source 4, Independent Source 2, Independent Source 9), the researcher's original evidence is insufficient to definitively prove this combination. However, since independent sources 2 and 9 explicitly state 'Core API \u2014 /rest/ and /graphql/' and 'Both are available as REST and GraphQL,' we must treat this as supported for correction purposes, but note that the contradiction arises from relying on multiple sources rather than a single definitive source."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Independent Source 10 (npm package) and Independent Source 11 (YouTube tutorial) confirm the existence of an official SDK/CLI ('twenty-sdk') provided by Twenty for developing applications that extend the CRM."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "Independent Source 2 and Independent Source 9 describe both a Core API (CRUD on People, Companies, Opportunities, custom objects) and a Metadata API (Schema management: create/modify/delete objects, fields, and relations), indicating broad functionality."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Original Source 7 provides a link to a third-party MCP server integration repository (jezweb/twenty-mcp). Independent Sources 13 and 14 discuss the general concept of MCP, but Original Source 7 is the only evidence linking MCP specifically to Twenty CRM."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The documentation (Independent Source 2, Independent Source 9) details how to generate API keys and provides an interactive playground within the application settings, confirming that a developer can realistically obtain credentials and use the documented APIs."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No sources indicate any technical or procedural blockers preventing development or integration with Twenty CRM."
+      }
+    },
+    "corrections": {
+      "api_types": [
+        "REST",
+        "GraphQL"
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "name": "Podio",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 3, Original Source 4, Independent Source 2, Independent Source 3, Independent Source 9) confirm that Podio uses OAuth2 and supports various flows including Server-side flow, Client-side flow, Username & password flow, and App authentication flow."
+      },
+      "access_type": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 5, Independent Source 8) indicate that users can get an API key by signing up or logging into Podio account settings, which supports self-service access."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "The evidence consistently describes the API as RESTful (Independent Source 3, Independent Source 5) and does not mention GraphQL support. The researcher's inclusion of 'GraphQL' is unsupported."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Original Source 2 and Independent Source 11 list multiple client libraries for languages including PHP, .NET, Ruby, Java, Python, Android, and Objective-C, confirming SDK availability."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 6, Independent Source 3, Independent Source 4) list a comprehensive range of functionalities accessible via the API, such as apps, items, workspaces, organizations, users, tasks, files, comments, and webhooks, supporting 'broad' breadth."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 7, Independent Source 3, Independent Source 4, Independent Source 13) confirm that the Model Context Protocol (MCP) can connect AI assistants directly to Podio data via a dedicated server."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The documentation provides clear instructions on authentication methods, API reference, and client libraries, indicating that developers can realistically obtain credentials and use the documented API."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No evidence suggests any technical or procedural blockers to using the Podio API."
+      }
+    },
+    "corrections": {
+      "api_types": [
+        "REST"
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "name": "Zoho CRM",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the use of OAuth 2.0 protocol for authentication (Original Source 2, Independent Source 1, Independent Source 2). The developer documentation details using client credentials flow which is an OAuth 2.0 method."
+      },
+      "access_type": {
+        "status": "unsupported",
+        "reason": "While the API access is available and requires setup (OAuth 2.0, Client ID/Secret), there is no definitive evidence from official sources confirming that 'paid_plan' is a mandatory requirement for basic API usage or advanced features in general terms. The documentation mentions paid plans are needed for advanced features but does not establish it as the sole access type."
+      },
+      "api_types": {
+        "status": "supported",
+        "reason": "Both REST APIs and GraphQL APIs are explicitly documented as available for data access (Original Source 5, Independent Source 4). The documentation confirms both types of APIs exist within Zoho CRM."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Multiple official sources confirm the availability of various SDKs including JavaScript, Ruby, Android, iOS, Java, Python, PHP, Node JS, and C# (Original Source 7, Independent Source 12). The presence of multiple language-specific SDK documentation confirms this."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The developer resources cover various functionalities like CRUD operations on CRM module entities, Bulk APIs, Notification APIs, and Query APIs (Independent Source 12), indicating a broad range of capabilities."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple official sources confirm that Zoho CRM provides built-in support for Model Context Protocol (MCP) to enable AI agents to perform end-to-end tasks (Original Source 6, Independent Source 15). The documentation describes this as a core feature."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The developer documentation provides detailed steps and required credentials (Client ID, Client Secret) for setting up API calls using OAuth 2.0, confirming that developers can realistically build applications with the Zoho CRM APIs."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No official sources or evidence were found to indicate any technical blockers preventing development or integration with the Zoho CRM API."
+      }
+    },
+    "corrections": {
+      "access_type": "null"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Close",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 2, Original Source 3, Independent Source 2, Independent Source 4) confirm support for OAuth 2.0 and API Keys."
+      },
+      "access_type": {
+        "status": "unsupported",
+        "reason": "While the documentation describes how to obtain credentials (API keys in Settings > Developer; OAuth App registration), it does not explicitly state whether access is self-serve, requiring account creation or payment plans."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "The evidence consistently states that the API uses REST conventions (Original Source 5, Independent Source 2, Independent Source 4, Independent Source 10). There is no mention of GraphQL."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Independent Source 11 lists multiple official SDKs for various languages (Node.js, Python, PHP, .NET, Java, Go), confirming broad availability."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The documentation covers core CRM concepts (Leads, Contacts, Opportunities, Activities) and provides extensive API reference material, indicating a broad scope of functionality."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 7, Independent Source 2, Independent Source 4, Independent Source 5, Independent Source 10) mention the Model Context Protocol (MCP) server and its use for AI agents."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The documentation provides clear steps on how to build integrations using both API Keys and OAuth 2.0, making it highly buildable."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No sources indicate any technical or procedural blockers for building an integration with the Close API."
+      }
+    },
+    "corrections": {
+      "api_types": [
+        "REST"
+      ],
+      "access_type": "null"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Copper",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources confirm support for both API Keys (via headers/Basic Auth) and OAuth2.0 flows, which is the preferred method for partner integrations."
+      },
+      "access_type": {
+        "status": "unsupported",
+        "reason": "While documentation exists on how to authenticate, there is no clear evidence provided regarding whether account creation or API credential access requires self-service sign-up, paid plans, or contacting sales. The process appears complex and varies by authentication method."
+      },
+      "api_types": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the use of a RESTful interface (e.g., 'The API provides a RESTful interface with JSON-formatted responses')."
+      },
+      "sdk_available": {
+        "status": "contradicted",
+        "reason": "The researcher claims SDK is False, but Independent Source 10 and Independent Source 11 provide evidence of multiple official SDKs (Node.js, Python, PHP, .NET, Java, Go) provided by Apideck for Copper integration."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The presence of a 'Universal API' covering 3100+ apps and the description of comprehensive functionality (Full CRUD support, normalized data models) indicates broad API breadth."
+      },
+      "mcp_status": {
+        "status": "contradicted",
+        "reason": "The researcher claims MCP status is 'third_party', but multiple sources confirm that Copper itself has documentation and connections related to the Model Context Protocol (MCP), indicating it is an official or highly integrated feature, not solely third-party."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "Multiple sources provide detailed guides on authentication (API Keys and OAuth2.0) and API usage patterns, allowing a developer to realistically build integrations."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No specific blockers are mentioned across the official documentation or independent sources; integration seems generally achievable with proper credentials."
+      }
+    },
+    "corrections": {
+      "sdk_available": true,
+      "mcp_status": "third_party"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Zendesk",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources confirm support for OAuth access tokens (OAuth2), API tokens, and basic authentication. Independent Source 1 and 8 detail the use of OAuth access tokens, while Original Sources 4, Independent Source 1, and Independent Source 3 discuss API tokens and basic authentication."
+      },
+      "access_type": {
+        "status": "unsupported",
+        "reason": "While documentation exists on how to authenticate (requiring verified users), there is no explicit evidence detailing the process for account creation, obtaining credentials, or if it requires a paid plan/developer registration beyond general developer access."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "The evidence strongly supports REST (Original Source 2, Independent Source 4) and GraphQL (Original Source 3, Independent Source 5). However, the researcher listed 'GraphQL' as a separate type. Since both are supported protocols, they should be listed together in the correction."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Multiple independent sources (Independent Source 10, Independent Source 12) confirm that Zendesk provides SDKs for various platforms including Web Widget API (client-side JavaScript), Android, and iOS."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "Original Source 6 lists multiple capabilities (Ticketing, Help Center, Live Chat, Sales CRM, Conversations) supported by the API reference, confirming broad coverage."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple official sources (Original Source 5, Independent Source 13) confirm that Model Context Protocol (MCP) is a feature used to extend workflows and interact with third-party systems, indicating an official status."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The documentation provides detailed guides on authentication methods (OAuth2, API Tokens, Basic Auth), endpoints, and usage examples (Independent Source 1, Independent Source 2, Independent Source 3), indicating the platform is buildable."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No evidence suggests any current technical or procedural blockers to development using the documented APIs."
+      }
+    },
+    "corrections": {
+      "api_types": [
+        "REST",
+        "GraphQL"
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "name": "Intercom",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the use of Access Tokens (for private apps/own workspace data) and OAuth 2.0 (for public apps/other people's data). Independent Source 3, 8, and 7 provide detailed confirmation of this distinction."
+      },
+      "access_type": {
+        "status": "unsupported",
+        "reason": "The evidence discusses how to obtain API credentials (Access Tokens or OAuth flow) but does not provide sufficient information regarding whether the platform requires a paid plan for general developer access, account creation, or obtaining initial credentials."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "The researcher listed ['REST', 'Other']. While REST is confirmed (Sources 4, 5, 6, 10), the evidence does not support a general 'Other' category. The primary API type is REST."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Independent Source 10 states that Intercom publishes official server-side SDKs for six languages (PHP, Node.js, Ruby, Go, Java, and .NET), confirming the availability of official client libraries."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "Multiple sources list a wide range of resources covered by the API, including Conversations, Contacts, Companies, Articles, Tickets, etc., supporting the 'broad' classification (Sources 4, 10)."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple official sources (Source 1, 7, 13, 15) confirm that Model Context Protocol (MCP) is a feature provided by Intercom for AI agents to interact with their data."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The documentation provides clear steps and protocols (OAuth flow, Access Token generation, MCP setup) detailing how developers can build integrations using the API."
+      },
+      "blocker": {
+        "status": "contradicted",
+        "reason": "Source 6 suggests that 'API access starts with any paid Intercom plan,' but this is presented as a third-party sales claim. Official sources (e.g., Source 8, 7) focus on the *type* of authentication required (Access Token vs OAuth) rather than mandating a specific paid plan as an absolute blocker for initial development or testing."
+      }
+    },
+    "corrections": {
+      "access_type": "null",
+      "api_types": [
+        "REST"
+      ],
+      "blocker": null
+    }
+  },
+  {
+    "id": 14,
+    "name": "Front",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the use of API Tokens (Bearer tokens) and OAuth2. Source 3, 12, and Independent Sources 2/8 explicitly mention these methods."
+      },
+      "access_type": {
+        "status": "supported",
+        "reason": "Independent Sources 2, 7, and 8 detail the process of creating a free developer account and obtaining API tokens, which supports self-service access for developers to begin building integrations."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "While GraphQL is mentioned in Original Source 5 (Frontify), the core documentation sources (Independent Sources 3, 4, 12) primarily focus on REST APIs and do not confirm a general, official GraphQL API type for the main platform functionality. The primary evidence points to REST."
+      },
+      "sdk_available": {
+        "status": "unsupported",
+        "reason": "No official documentation or source explicitly confirms the availability of an official client SDK (e.g., Python, Node.js library) provided by Front for general use. The sources focus on API usage and developer portals."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The Core API is described as providing 'comprehensive control over all entities in Front from Contacts to Comments' (Original Source 4, Independent Sources 5, 12), indicating broad functionality."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple sources confirm that Front supports the Model Context Protocol (MCP) via an MCP Server API for AI agents to read and reply to conversations (Original Source 7, Independent Sources 5)."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The documentation provides clear steps on creating a developer account, obtaining tokens, and using the Core API, indicating that developers can realistically begin building integrations."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No blockers are mentioned in the provided evidence; development is presented as achievable through the documented APIs and developer accounts."
+      }
+    },
+    "corrections": {
+      "api_types": [
+        "REST"
+      ],
+      "sdk_available": false
+    }
+  },
+  {
+    "id": 15,
+    "name": "Pylon",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 1, Original Source 2, Independent Source 1, Independent Source 7) confirm that Pylon uses Bearer Tokens and API Tokens for authentication. OAuth 2.0 is specifically mentioned in relation to the MCP server (Original Source 4, Independent Source 14), making it a supported method."
+      },
+      "access_type": {
+        "status": "contradicted",
+        "reason": "The researcher claims 'admin_approval' access type. While multiple sources confirm that only Admin users can create API tokens (Original Source 7, Independent Source 1, Independent Source 2), and some integrations require setup/contacting support (Original Source 11), the evidence also shows direct self-service token generation via the Pylon dashboard for various third parties (Independent Source 3, Independent Source 7, Independent Source 9). Therefore, 'admin_approval' is too restrictive."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "The researcher lists both GraphQL and REST. While Pylon offers a REST API (Original Source 6, Independent Source 2), the evidence for GraphQL comes from third-party frameworks/wrappers built on top of Pylon (Independent Source 5, Independent Source 6). The official documentation confirms the underlying API is REST/Bearer token based, and there is no definitive proof that the core Pylon API itself exposes a native GraphQL endpoint. Therefore, only REST can be confirmed as the primary API type."
+      },
+      "sdk_available": {
+        "status": "contradicted",
+        "reason": "The researcher claims 'SDK available: False'. However, Independent Source 10 and Independent Source 11 provide extensive documentation detailing multiple Pylon APIs (C, C++, .NET, Python) as part of the pylon Software Suite/SDK. While these are for a different product named 'pylon' (Basler), they contradict the general assumption that no SDK is available. Given the ambiguity and potential confusion between two different products named 'Pylon', I must rely on the most direct evidence regarding Pylon's core API access, which does not explicitly list an official client library for developers to use with their primary support platform APIs (like a Python or Node wrapper). However, since multiple sources confirm programmatic access via REST/GraphQL *frameworks* (Independent Source 5, Independent Source 6), and the Basler evidence is highly specific to camera hardware, I will mark this as unsupported due to conflicting product names. Re-evaluating based on strict rules: The researcher claims 'False'. Since there is no clear official documentation confirming a dedicated SDK for the *support platform* API (as opposed to the camera hardware), and the Basler evidence is too specific/different, I cannot confirm or contradict this claim definitively without risking misclassification. However, given the strong presence of GraphQL frameworks (Independent Source 5, Independent Source 6) which act as wrappers, marking it 'supported' might be misleading. Sticking to the strict interpretation: No official SDK for the *support platform* API is confirmed."
+      },
+      "api_breadth": {
+        "status": "contradicted",
+        "reason": "The researcher claims 'broad'. Independent Source 2 lists Pylon's REST API spanning 22 documented resource groups (issues, messages, accounts, contacts, etc.), which supports a broad scope. However, the GraphQL framework examples (Independent Source 5) and general documentation suggest that while many features are covered, the breadth is defined by specific integration points rather than being universally 'broad' in a technical sense. Given the detailed listing of resource groups in Independent Source 2, I will correct this to reflect its comprehensive nature."
+      },
+      "mcp_status": {
+        "status": "contradicted",
+        "reason": "The researcher claims 'third_party'. While some third-party sources exist (Independent Source 13), the official documentation (Original Source 4, Independent Source 14) confirms that the Pylon MCP Server is maintained by Pylon itself ('the official integration surface Pylon maintains'). Therefore, it must be classified as an official feature."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "Multiple sources detail clear steps for developers to obtain tokens and use the API (Independent Source 3, Independent Source 7, Independent Source 9). The existence of GraphQL frameworks (Independent Source 5) further supports that development is possible."
+      },
+      "blocker": {
+        "status": "contradicted",
+        "reason": "The researcher claims 'API access requires admin approval or paid plan'. While Admin creation rights are noted for tokens (Original Source 7, Independent Source 1), and some sources mention payment/tiers (Original Source 10), the evidence also shows that API tokens can be generated by users in certain contexts without explicit mention of a mandatory paid plan or direct administrative intervention being the *only* blocker. Furthermore, independent sources show self-service token generation is possible for integration setup."
+      }
+    },
+    "corrections": {
+      "access_type": "self_serve",
+      "api_types": [
+        "REST"
+      ],
+      "mcp_status": "official"
+    }
+  },
+  {
+    "id": 16,
+    "name": "LiveAgent",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 4, Independent Source 1, Independent Source 7) confirm that LiveAgent supports both API Keys and OAuth 2.0 for authentication."
+      },
+      "access_type": {
+        "status": "unsupported",
+        "reason": "While Original Source 5 mentions a free 30-day trial, there is no definitive evidence confirming the general 'free_trial' access type or self-service account creation process required for API usage."
+      },
+      "api_types": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 2, Independent Source 1, Independent Source 2) confirm the use of REST APIs for LiveAgent's functionality. No evidence suggests other primary API types like GraphQL."
+      },
+      "sdk_available": {
+        "status": "unsupported",
+        "reason": "While independent sources show code examples using Python libraries (e.g., `requests` in Independent Source 1, Independent Source 7), there is no official evidence confirming a dedicated, proprietary SDK provided by LiveAgent itself."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "Original Source 2 lists multiple functions (retrieving company lists, deleting conversations, creating new conversations, registering new customers, and generating department reports), indicating a broad range of available API functionalities."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Original Source 6 and Independent Source 13 mention the Model Context Protocol (MCP) in relation to LiveAgent, suggesting its integration or relevance. Although third-party sources discuss MCP generally, the researcher's claim is supported by specific mentions linking it to LiveAgent."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "Multiple independent sources (Independent Source 1, Independent Source 7) provide detailed code examples and step-by-step guides on how developers can obtain credentials (API Key) and implement API calls using standard programming languages like Python, confirming buildability."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No evidence is provided in the original research or independent sources to suggest any technical blockers for integration."
+      }
+    },
+    "corrections": {
+      "access_type": "null"
+    }
+  },
+  {
+    "id": 17,
+    "name": "Plain",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 4, Independent Source 1, Independent Source 4) confirm that the GraphQL API requires a Bearer token for authorization, and Independent Source 1 mentions needing an API key with specific permissions."
+      },
+      "access_type": {
+        "status": "unsupported",
+        "reason": "While documentation exists on obtaining an API key (Independent Source 1, Independent Source 4), there is no explicit evidence detailing the process for account creation, developer registration, or if access requires payment/approval status to determine self-serve capability."
+      },
+      "api_types": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 2, Original Source 4, Independent Source 1, Independent Source 4) confirm that the primary API type is GraphQL. There is no evidence supporting a REST API type."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Original Source 7 and Independent Source 12 explicitly state that Plain provides typed TypeScript and Go SDKs for integration."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "Independent Source 12 states that the platform unifies support across email, chat, Slack, and API-created threads, covering many functional areas (customers, companies, tenants, etc.), indicating broad coverage."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Original Source 5 and Independent Source 12 both state that Plain has an official agent skill/MCP server, confirming its MCP status is official."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The documentation provides clear examples of API calls (Independent Source 1, Independent Source 4) and SDK usage (Independent Source 11), indicating that a developer can realistically obtain credentials and use the documented API."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "The researcher correctly identified no blockers as multiple sources confirm comprehensive documentation, SDKs, and clear integration paths."
+      }
+    },
+    "corrections": {
+      "access_type": null,
+      "api_types": [
+        "GraphQL"
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "name": "Help Scout",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 2, Original Source 3, Independent Source 1, Independent Source 2, Independent Source 7) confirm that Help Scout uses OAuth 2.0 authentication, supporting both Authorization Code and Client Credentials flows."
+      },
+      "access_type": {
+        "status": "contradicted",
+        "reason": "The researcher claims 'paid_plan' access type. While multiple sources (Original Source 4, Original Source 5, Independent Source 1) indicate that API access is restricted to paid plans (Plus/Pro), the developer documentation and third-party reports also show mechanisms for self-service setup by any admin ('Any admin can register an OAuth app in the UI' - Independent Source 5; 'All requests have to be authenticated via the Authorization header' - Independent Source 2). The restriction is on *full* access, not necessarily that the developer cannot initiate the process."
+      },
+      "api_types": {
+        "status": "supported",
+        "reason": "Multiple sources (Independent Source 1, Independent Source 2, Independent Source 7) detail API interactions using REST endpoints and methods (GET, POST, PATCH). No evidence suggests GraphQL is a primary or official API type."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Independent Source 10 lists multiple client libraries/wrappers for various languages (PHP Client, Node.js SDK, .NET API Client, Ruby Gem, Python client), indicating official or widely adopted developer tools are available."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The platform offers multiple distinct APIs covering different resource areas (Mailboxes/Inbox, Docs, Users, Customers, Workflows, etc.), as evidenced by Independent Source 4 and Independent Source 6, indicating broad API coverage."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 7, Original Source 8, Independent Source 13, Independent Source 14) confirm that Help Scout supports connecting AI agents via the Model Context Protocol (MCP). The researcher correctly identified this as a third-party implementation capability."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The documentation provides clear steps for developers to set up OAuth 2.0 applications, obtain credentials, and interact with the API (Independent Source 1, Independent Source 2). The existence of multiple SDKs further supports buildability."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 4, Original Source 5, Independent Source 1) confirm that API access is restricted to higher-tier paid plans (Plus/Pro), making the lack of basic API access a significant blocker for lower-tier users."
+      }
+    },
+    "corrections": {
+      "access_type": "paid_plan"
+    }
+  },
+  {
+    "id": 19,
+    "name": "Gorgias",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the use of OAuth2 and API Key/Basic Authentication. Independent Source 1 mentions 'OAuth2' and 'HTTP Basic with an email and API key'. Independent Source 2 confirms support for 'basicAuth' and 'oauth2'. Independent Source 3 details using an 'API Key' alongside a base URL and email, which constitutes basic authentication."
+      },
+      "access_type": {
+        "status": "contradicted",
+        "reason": "The researcher claims access is restricted to 'paid_plan'. While multiple sources mention paid plans (Original Source 4, Independent Source 11), the documentation for accessing API credentials and using the REST API (Independent Sources 2, 8, 9) suggests that while advanced features may require payment, the core ability to obtain credentials and use the API is described as available on 'all Helpdesk plans' or through standard developer processes, contradicting a strict requirement of only paid plans."
+      },
+      "api_types": {
+        "status": "supported",
+        "reason": "Multiple sources confirm that Gorgias provides a REST API (Original Source 2, Independent Sources 1, 2, 8). No evidence suggests other primary API types like GraphQL are offered by the company."
+      },
+      "sdk_available": {
+        "status": "unsupported",
+        "reason": "The researcher claims an SDK is available (False). While multiple sources discuss 'SDK' or 'developer tools' (Independent Source 10), they describe it as a concept, a set of building blocks, or general developer resources. No official documentation confirms the existence of a dedicated, downloadable, and officially provided client library (SDK) from Gorgias itself."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The evidence shows that the API allows for extensive data manipulation, including tickets, messages, customers, macros, rules, tags, integrations, and widgets (Original Source 2, Independent Sources 1, 2)."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the existence of Gorgias MCP. Original Source 5 states it is an official connection layer. Independent Source 13 and 14 describe the 'Gorgias MCP server' as a Model Context Protocol server connecting to AI agents, confirming its status within the ecosystem."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "Multiple sources provide detailed instructions on how developers can obtain credentials (Base API URL, Email, API Key) and use the REST API to build custom integrations (Independent Sources 8, 9). This confirms that building applications is feasible."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No evidence from any source suggests a technical or procedural blocker for developers accessing or using the core API functionality."
+      }
+    },
+    "corrections": {
+      "access_type": "paid_plan"
+    }
+  },
+  {
+    "id": 20,
+    "name": "Gladly",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 2, Original Source 3, Independent Source 1, Independent Source 2) confirm that API tokens are used for authentication. Specifically, the combination of an agent email and an API token is required for Basic Authentication."
+      },
+      "access_type": {
+        "status": "supported",
+        "reason": "The process described in multiple sources (Independent Source 1, Independent Source 2, Independent Source 3) involves generating tokens and setting up permissions within the Gladly UI/Settings, which is characteristic of a self-serve developer experience."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "While original sources mention REST (Original Source 4) and GraphQL (Original Source 5), independent sources confirm the existence of a public REST API (Independent Source 5, Independent Source 8). However, no official documentation or primary source confirms that Gladly provides an accessible GraphQL API endpoint for general integration purposes; the reference to App Platform using GraphQL appears limited to internal tutorial context."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Original Source 6 and Independent Source 10 confirm the availability of dedicated SDKs for Web, iOS, and Android (Chat Web SDK, Chat iOS SDK, Chat Android SDK)."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "Multiple sources describe Gladly's API covering a wide range of customer service functions, including customers, conversations, agents, tasks, and knowledge base content (Original Source 7, Independent Source 5)."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the existence and relevance of the Model Context Protocol (MCP) in relation to Gladly, including dedicated documentation about MCP for Gladly (Independent Source 13, Independent Source 14)."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The evidence details clear steps for obtaining API tokens and setting up permissions (Independent Source 8), and provides extensive documentation on REST APIs, confirming that developers can realistically build integrations."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No sources indicate any technical or procedural blockers to integration; the process is documented as straightforward via API tokens and developer tools."
+      }
+    },
+    "corrections": {
+      "api_types": [
+        "REST"
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "name": "Slack",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the use of OAuth scopes for authentication (Original Source 3, Independent Source 1, Independent Source 7). Independent Source 2 also details using Bearer tokens in conjunction with OAuth 2.0."
+      },
+      "access_type": {
+        "status": "unsupported",
+        "reason": "The evidence confirms that developers must register an app and go through an authentication process (Original Source 3, Independent Source 1). However, there is no specific documentation or evidence provided to determine if the access type is self-serve, requiring account creation, or involves paid plans/partner requirements."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "The official developer documentation (Original Source 2, Independent Source 1) and multiple independent sources confirm the existence of a REST API. While some third-party sources mention GraphQL integration (Independent Source 4, Independent Source 5), there is no evidence from official Slack developer documentation confirming that Slack provides an underlying native GraphQL API for general development use."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Multiple independent sources confirm the availability of official SDKs for popular languages, including Python (Independent Source 10, Independent Source 12) and Node.js/JavaScript (Independent Source 11)."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The evidence describes a wide range of functionalities supported by the API, including reading messages, posting replies, searching history, managing canvases, and accessing various data types, indicating broad API coverage (Original Source 2, Independent Source 14)."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple official and highly reputable sources confirm the existence of the Model Context Protocol (MCP) server as an official way to give AI agents secure access to Slack data (Original Source 4, Original Source 5, Independent Source 13, Independent Source 14). The documentation refers to this as a core feature."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The process for building an app is clearly documented, requiring developers to create an app, select scopes, and use the provided APIs/SDKs (Original Source 3, Independent Source 7). This indicates a clear path for development."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No blockers are mentioned across the available evidence; the documentation provides guides on how to proceed with integration and development."
+      }
+    },
+    "corrections": {
+      "api_types": [
+        "REST"
+      ],
+      "access_type": "null"
+    }
+  },
+  {
+    "id": 22,
+    "name": "Twilio",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 4, Original Source 5, Independent Source 1, Independent Source 2, Independent Source 3) confirm that API Key and Basic authentication are used. Specifically, the documentation details using an API key SID as the username and the API key secret as the password for HTTP Basic authentication."
+      },
+      "access_type": {
+        "status": "supported",
+        "reason": "The evidence shows developers can obtain credentials (API Keys/Secrets) through the Twilio Console or using the API, which is characteristic of a self-serve model. Sources 5 and 7 confirm this process."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "While GraphQL support is mentioned in some sources (Original Source 2, Independent Source 4), the core API documentation and primary authentication methods focus on REST APIs. The most reliable evidence for the underlying protocol type points to REST."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Multiple independent sources (Independent Source 3, Independent Source 12) confirm that Twilio provides official server-side SDKs for various popular languages including Python, Node.js, C#, Java, PHP, and Ruby."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The documentation covers a wide range of services (SMS, Voice, Video, Email, Authentication/Verify) and resources (Accounts, Phone Numbers, Calls), indicating broad API coverage."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple official sources (Original Source 6, Independent Source 13, Independent Source 14, Independent Source 15) confirm the existence and implementation of the Twilio Alpha MCP server, which exposes all Twilio APIs as 'tools' for AI agents."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The documentation provides clear steps on how to obtain credentials (API Keys/Secrets) via the Console and details usage examples using SDKs, confirming that developers can realistically build applications with Twilio APIs."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No evidence suggests any technical or procedural blockers for development; documentation is readily available for setup and use."
+      }
+    },
+    "corrections": {
+      "api_types": [
+        "REST"
+      ]
+    }
+  },
+  {
+    "id": 23,
+    "name": "Zoho Cliq",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 3, Independent Source 1, Independent Source 6, Independent Source 7, Independent Source 11) confirm that Zoho Cliq API uses the OAuth 2.0 protocol for authentication."
+      },
+      "access_type": {
+        "status": "unsupported",
+        "reason": "While documentation details how to register an application and obtain credentials (Independent Source 8), it does not provide sufficient evidence to determine if access is universally self-serve, or if specific account creation/approval steps are required beyond basic developer registration."
+      },
+      "api_types": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 2, Independent Source 6, Independent Source 7, Independent Source 9) confirm that the Zoho Cliq API is built on RESTful architecture principles and uses standard HTTP verbs (GET, POST, PUT, PATCH, DELETE)."
+      },
+      "sdk_available": {
+        "status": "unsupported",
+        "reason": "While integration examples exist in third-party tools (Independent Source 12), there is no official evidence from Zoho documentation confirming the availability of an official client SDK for general use."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The API coverage is extensive, managing core functions like channels, messages, bots, and user interactions (Original Source 9, Independent Source 7), indicating a broad scope of capabilities."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple official sources (Original Source 6, Independent Source 13, Independent Source 15) confirm that Zoho Cliq uses the Model Context Protocol (MCP), and these sources are from Zoho's own documentation."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The process for developers to register applications, obtain credentials, and use documented API endpoints is detailed across multiple official sources (Independent Source 8, Independent Source 12), indicating the platform is buildable."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No evidence suggests any technical or procedural blockers to using the Zoho Cliq API or MCP server for integration."
+      }
+    },
+    "corrections": {
+      "access_type": {
+        "value": null,
+        "reason": "Insufficient evidence to determine if access is universally self-serve, or if specific account creation/approval steps are required beyond basic developer registration."
+      },
+      "sdk_available": {
+        "value": false,
+        "reason": "No official documentation confirms the availability of an official client SDK for general use. While third parties may build wrappers, this is not evidence of an official product."
+      }
+    }
+  },
+  {
+    "id": 25,
+    "name": "Pumble",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the use of API keys and bearer tokens for authentication. Independent Source 1, 2, and 6 explicitly mention using a MindCloud API Key in the Authorization header as a Bearer token."
+      },
+      "access_type": {
+        "status": "supported",
+        "reason": "The documentation describes processes like generating an API key (Independent Source 8, 9) and connecting via credentials, which are typical self-service developer actions. The requirement to generate keys within the Pumble workspace administration panel supports this."
+      },
+      "api_types": {
+        "status": "supported",
+        "reason": "Multiple independent sources (1, 2, 6) show examples of API calls using `curl` with POST requests and JSON content types, which is characteristic of a REST API. There is no evidence suggesting other protocols like GraphQL."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Independent Source 10 points to a repository containing 'pumble-node-sdk', indicating the availability of an SDK for developers, although it is third-party. However, Independent Source 11 mentions 'Pumble SDK' in its documentation, suggesting official or widely available developer tools."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "Independent Source 6 lists numerous endpoints (e.g., POSTAdd Reaction to Message, GETGet Channel, POSTSend Direct Message to User), demonstrating a wide range of capabilities and actions available via the API."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple independent sources (13, 14, 15) discuss the Pumble Model Context Protocol (MCP) server, confirming its existence and use for connecting AI agents to Pumble."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The documentation provides detailed steps on how to generate API keys, install add-ons, and execute API calls using cURL examples (Independent Source 2, 6), indicating that a developer can realistically build integrations."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the ability to generate API keys and connect via credentials, with no mention of insurmountable blockers preventing integration."
+      }
+    },
+    "corrections": {
+      "sdk_available": true
+    }
+  },
+  {
+    "id": 26,
+    "name": "Discord",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources confirm that authentication can be done using a bot token and an OAuth2 bearer token. Independent Source 1 explicitly details both methods, and Original Sources 2 and 3 corroborate this."
+      },
+      "access_type": {
+        "status": "unsupported",
+        "reason": "While the developer portal requires developers to create an account (Original Source 5), there is no definitive evidence provided that confirms a self-serve access model, or if specific approval/paid plans are required beyond basic registration."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "The researcher claims REST and WebSocket. Independent Source 4 explicitly states that Discord's developer platform is built on a REST API, a WebSocket Gateway for real-time events, and an HTTP Webhook Events endpoint. While the researcher correctly identifies REST and WebSocket, they incorrectly include GraphQL as a primary API type, which is contradicted by multiple sources (Independent Sources 4 and 1)."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Independent Source 10 details the Embedded App SDK, confirming that an official client library exists for developers to build interactive Activities. Furthermore, Independent Source 12 discusses the Discord Social SDK, which is a feature set provided by the company."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The evidence covers multiple aspects of communication (messaging, voice chat, events, forums) and development features (OAuth2, bots, webhooks), indicating broad API coverage."
+      },
+      "mcp_status": {
+        "status": "contradicted",
+        "reason": "The researcher claims MCP status is 'third_party'. While third-party tools exist using MCP (Independent Sources 14 and 15), the evidence also shows that Discord itself has a community page dedicated to exploring MCP (Independent Source 13). However, since the core developer documentation does not establish an official company commitment or implementation of MCP, classifying it as 'third_party' is accurate based on available sources. The contradiction arises because the researcher implies this is a general feature status without acknowledging its third-party nature being derived from community efforts."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "Multiple sources provide detailed instructions and documentation (e.g., Independent Source 1, 3, 7) on how to obtain credentials and interact with the API using various methods (OAuth2, Bot Tokens), confirming that development is possible."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No evidence suggests any insurmountable technical or legal blockers for developers utilizing the documented APIs."
+      }
+    },
+    "corrections": {
+      "api_types": [
+        "REST",
+        "WebSocket"
+      ],
+      "mcp_status": "third_party"
+    }
+  },
+  {
+    "id": 28,
+    "name": "WhatsApp Business",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the use of OAuth2 and API Keys. Specifically, Independent Source 7 details using 'API key' for the WhatsApp Business Cloud node and 'OAuth2' for the WhatsApp Trigger node. Original Source 5 also mentions both OAuth2 and API Key."
+      },
+      "access_type": {
+        "status": "contradicted",
+        "reason": "The researcher claims access is 'paid_plan'. While multiple sources (Original Source 6, Independent Source 2) mention usage-based fees or paid plans are involved, the official documentation (Independent Source 3, Independent Source 7, Independent Source 12) describes a structured setup process involving developer registration and account creation, which can be initiated without immediate payment. Furthermore, Original Source 2 claims access is 'free through Meta's Cloud API', contradicting the mandatory paid nature implied by 'paid_plan'. Therefore, classifying it solely as 'paid_plan' is inaccurate."
+      },
+      "api_types": {
+        "status": "supported",
+        "reason": "Independent Source 4 explicitly states that using n8n to interact with WhatsApp Business Cloud involves creating a REST API call via the HTTP Request node. Independent Source 7 also describes setting up credentials for nodes, which implies standard API interaction methods like REST."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Independent Source 11 is a GitHub repository titled 'WhatsApp Business API SDK' and provides a Node.js connector, indicating the availability of an official or widely adopted client library for developers to interact with the API."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The documentation covers various functionalities including sending messages (text, media), managing templates, and handling different conversation types (Utility, Authentication, Service) across multiple sources (Independent Source 1, Independent Source 2, Independent Source 3)."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple independent sources confirm the existence and use of Model Context Protocol (MCP) for WhatsApp. Original Source 7 describes MCP's use by third parties to build servers exposing WhatsApp actions, and Independent Sources 13 and 14 provide detailed examples of how MCP is implemented for WhatsApp."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The process is clearly documented across multiple sources (Independent Source 7, Independent Source 12) requiring steps like creating a Meta Business Account, setting up the WABA, and generating tokens, confirming that developers can realistically build integrations."
+      },
+      "blocker": {
+        "status": "contradicted",
+        "reason": "The researcher claims 'API access requires paid plan'. While usage fees apply (Original Source 6), the primary blocker is not solely payment. The process requires significant setup, including Meta Business Portfolio verification and specific developer credentials/approvals (Independent Source 2, Independent Source 12). Furthermore, Original Source 2 explicitly states that initial access can be 'free through Meta's Cloud API', contradicting a mandatory paid plan requirement for basic access."
+      }
+    },
+    "corrections": {
+      "access_type": "self_serve",
+      "blocker": "Meta Business Portfolio verification and developer setup are required, alongside usage fees."
+    }
+  },
+  {
+    "id": 29,
+    "name": "Aircall",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 2, Original Source 3, Independent Source 1, Independent Source 2, Independent Source 3) confirm support for Basic Auth and OAuth 2.0."
+      },
+      "access_type": {
+        "status": "contradicted",
+        "reason": "While self-serve access is possible via API keys (Independent Source 3), the requirement to be a 'Technology Partner' or use OAuth suggests that full integration capabilities are gated, contradicting a simple 'self_serve' classification for all users."
+      },
+      "api_types": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 5, Independent Source 1) confirm the availability of a REST API. No evidence suggests other primary types like GraphQL are available."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Independent Source 2 mentions 'Open API: self-serve, documented, with SDKs', and Original Source 6 lists 'SDKs' as a feature. Independent Source 11 also details the Everywhere SDK."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "Original Source 5 claims comprehensive management of calls, messages, AI agents, users, numbers, and more. Independent Source 2 confirms coverage of 'calls, contacts, users, numbers, and conversation intelligence', supporting a broad API breadth."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 10, Independent Source 13, Independent Source 15) confirm the existence of third-party MCP servers for Aircall. Since these are not official Aircall products, they must be classified as 'third_party'."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "Multiple sources (Independent Source 3, Independent Source 8) provide detailed, step-by-step instructions on how to generate API keys and make the first authenticated request using Basic Auth."
+      },
+      "blocker": {
+        "status": "contradicted",
+        "reason": "While Original Source 8 suggests paid plans are required for full functionality (e.g., Conversation Intelligence), Independent Source 3 shows that basic API key generation and usage is available to 'Aircall customers' without explicitly stating a paywall blocker for initial access."
+      }
+    },
+    "corrections": {
+      "access_type": "self_serve",
+      "blocker": "unsupported"
+    }
+  },
+  {
+    "id": 31,
+    "name": "Google Ads",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the use of OAuth 2.0 for authentication and authorization (Original Source 3, Independent Source 1, Independent Source 2, Independent Source 3). The developer token is also required alongside OAuth credentials (Independent Source 1, Independent Source 9)."
+      },
+      "access_type": {
+        "status": "unsupported",
+        "reason": "While the process requires obtaining credentials and tokens (Original Source 8, Independent Source 1), there is no explicit evidence stating that access requires 'admin_approval' as a general requirement for all developers. The complexity of setup suggests high barriers, but 'admin_approval' specifically is not confirmed."
+      },
+      "api_types": {
+        "status": "supported",
+        "reason": "Multiple sources confirm support via both gRPC and REST interfaces (Original Source 5, Independent Source 5). The researcher correctly listed both types."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Official client libraries are repeatedly recommended and discussed as available for various languages (Original Source 6, Independent Source 1, Independent Source 5)."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The documentation describes the API as a comprehensive programmatic interface for managing accounts and campaigns, indicating broad functionality."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple sources confirm Google provides an official Model Context Protocol (MCP) server for the Google Ads API (Original Source 7, Independent Source 13, Independent Source 14). The evidence supports this being a core feature."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The documentation provides detailed guides on authentication flows and usage, indicating that the API is designed to be built upon (Independent Source 1)."
+      },
+      "blocker": {
+        "status": "unsupported",
+        "reason": "While obtaining a developer token and setting up OAuth credentials are complex steps (Original Source 8, Independent Source 1), there is no single definitive 'Blocker' status provided by the evidence. The process requires multiple components (developer token + OAuth) rather than one simple blocker."
+      }
+    },
+    "corrections": {
+      "blocker": "null"
+    }
+  },
+  {
+    "id": 33,
+    "name": "LinkedIn Ads",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 4, Independent Source 1, Independent Source 9) confirm that LinkedIn uses OAuth 2.0 for user authorization and API authentication."
+      },
+      "access_type": {
+        "status": "contradicted",
+        "reason": "The evidence repeatedly indicates that access is highly restricted, requiring application submission, review, and approval from LinkedIn (Original Source 2, Original Source 3, Independent Source 3, Independent Source 7, Independent Source 8). This contradicts the 'partner_gated' status if interpreted as a simple partnership requirement; it requires an explicit, multi-step developer/product approval process."
+      },
+      "api_types": {
+        "status": "supported",
+        "reason": "The documentation and examples provided (Independent Source 1, Independent Source 4, Independent Source 11) confirm that the API uses REST endpoints and methods (GET, POST, PATCH, DELETE)."
+      },
+      "sdk_available": {
+        "status": "unsupported",
+        "reason": "While some sources mention official clients or libraries (Independent Source 7 mentions an 'official Python client'), there is no definitive evidence across the provided set of sources confirming a general, officially available SDK for all developers."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The API covers multiple areas including managing advertising campaigns, ad accounts, user management, reporting, and marketing assets (Original Source 1, Independent Source 7). This indicates a broad scope of functionality."
+      },
+      "mcp_status": {
+        "status": "contradicted",
+        "reason": "While third-party services exist that implement an MCP server for LinkedIn Ads (Independent Source 13, Independent Source 14), the evidence explicitly states that LinkedIn itself has not published an official MCP server. Therefore, classifying it as a general 'third_party' status is accurate regarding the *server*, but the researcher implies this is a core feature/status of the API itself."
+      },
+      "buildability": {
+        "status": "contradicted",
+        "reason": "Due to the strict and multi-stage approval process required from LinkedIn (Original Source 2, Independent Source 3, Independent Source 7), building an application is not simply 'buildable_with_constraints'; it requires significant pre-approval and partnership status."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "Multiple sources confirm that access to the Advertising API requires explicit approval from LinkedIn, which serves as a major blocker (Original Source 2, Original Source 3, Independent Source 7)."
+      }
+    },
+    "corrections": {
+      "access_type": "partner_gated",
+      "sdk_available": false,
+      "mcp_status": "third_party",
+      "buildability": "buildable_with_constraints"
+    }
+  },
+  {
+    "id": 35,
+    "name": "Mailchimp",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 2, Independent Source 1, Independent Source 8) confirm that authentication can be done using API keys and OAuth 2 tokens."
+      },
+      "access_type": {
+        "status": "unsupported",
+        "reason": "While the documentation describes how to obtain credentials (API key generation, OAuth flow), it does not provide sufficient evidence to determine if access is restricted to paid plans or requires specific partner/sales contact for full functionality."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "The original source claims support for both RESTful and GraphQL APIs. Independent sources (Independent Source 1, 8, 12) confirm the use of a Marketing API which uses standard authentication methods typical of REST APIs. While third-party wrappers/integrations exist (Original Source 4), official documentation does not confirm that Mailchimp provides an official GraphQL endpoint or protocol."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Independent Source 6 and Independent Source 11 list 'PHP', 'Node' under SDKs & client libraries, and the original sources mention official client libraries (Original Source 5). This confirms that official SDKs are available."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The application is described as an 'All-In-One integrated marketing platform' and the documentation covers Marketing API, Transactional Messaging, Mobile SDK, etc., indicating broad functionality."
+      },
+      "mcp_status": {
+        "status": "contradicted",
+        "reason": "Original Source 6 claims Mailchimp offers an official MCP server for Transactional Messaging. However, Independent Source 13 explicitly states that the official MCP server only covers Transactional Messaging (the old Mandrill product) and that the main marketing platform has no official MCP server. Therefore, classifying it as 'official' is misleading regarding its overall scope."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "Multiple sources provide detailed guides on authentication (API keys, OAuth 2), API endpoints, and SDK usage, confirming that developers can realistically build integrations."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "The original research evidence lists 'None' as the blocker, and no conflicting or limiting blockers are identified in the provided sources."
+      }
+    },
+    "corrections": {
+      "api_types": [
+        "REST"
+      ],
+      "mcp_status": "third_party"
+    }
+  },
+  {
+    "id": 36,
+    "name": "Klaviyo",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the use of private key authentication (API Key), OAuth, and public key authentication for different contexts (server-side, client-side, tech partners). Independent Source 1 and 2 detail these three methods."
+      },
+      "access_type": {
+        "status": "supported",
+        "reason": "The documentation describes obtaining API credentials via the developer portal/settings page for private keys and public keys, which are standard self-service actions. Independent Source 7 details how to obtain these keys from the account's Settings page."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "The researcher lists 'REST', but while many sources confirm REST usage (Independent Source 6, Independent Source 9), there is no definitive evidence that Klaviyo's core API type is GraphQL. While some sources mention GraphQL schemas or concepts, the primary and most consistently documented protocol for direct API interaction remains REST."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Multiple official sources confirm SDK availability: Independent Source 12 lists Python, PHP, Ruby, Node (server-side), and dedicated GitHub repositories/documentation exist for iOS and Android (Independent Source 10, Independent Source 11). This confirms the general claim that SDKs are available."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "Multiple sources list a wide range of endpoints/capabilities, including profiles, events, lists, segments, campaigns, flows, and webhooks (Original Source 2, Independent Source 5, Independent Source 6). This supports the claim that the API breadth is broad."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple official sources confirm the existence of a Model Context Protocol (MCP) server provided by Klaviyo for AI agents, including dedicated documentation and mentions in developer portals (Original Source 7, Independent Source 14)."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The process is well-documented across multiple sources: developers can obtain credentials (Independent Source 7), use specific authentication methods (Private Key/OAuth/Public Key), and interact with defined endpoints, making it buildable."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No evidence suggests any technical or procedural blocker to using the API or integrating with Klaviyo's services. The documentation is comprehensive regarding setup and usage."
+      }
+    },
+    "corrections": {
+      "api_types": [
+        "REST"
+      ]
+    }
+  },
+  {
+    "id": 37,
+    "name": "systeme.io",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 3, Original Source 8, Independent Source 2, Independent Source 3, Independent Source 4, Independent Source 6) confirm that API keys are used for authentication. Specifically, the documentation mentions generating and using 'API Keys' or 'api_key'."
+      },
+      "access_type": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 7, Original Source 8, Independent Source 3, Independent Source 4, Independent Source 12) state that core endpoints and API access are available on the Free plan, indicating a low barrier to entry for developers."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "The evidence consistently points to a REST API (Original Source 3, Independent Source 1, Independent Source 2, Independent Source 3, Independent Source 4, Independent Source 5, Independent Source 6). There is no official or reliable evidence provided that the system offers a GraphQL API."
+      },
+      "sdk_available": {
+        "status": "unsupported",
+        "reason": "While third-party integrations and documentation exist (Independent Source 1, Independent Source 2), there is no evidence of an official client library or SDK provided directly by Systeme.io for developers."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The API is described as covering a wide range of functionalities including contacts, tags, funnels, newsletters, automation rules, and digital products (Original Source 6, Independent Source 3, Independent Source 4, Independent Source 5)."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple sources (Original Source 4, Original Source 5, Independent Source 13, Independent Source 14) confirm the existence and function of the Model Context Protocol (MCP), which is an official feature documented by Systeme.io."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The documentation provides clear steps for generating API keys/MCP keys and using them to interact with the platform, making it buildable for developers (Original Source 8, Independent Source 14)."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "Multiple sources indicate that while core endpoints are available on the free plan, API access might be gated or rate-limited, but no definitive blocker is stated as preventing development (Independent Source 3, Independent Source 4)."
+      }
+    },
+    "corrections": {
+      "api_types": [
+        "REST"
+      ],
+      "sdk_available": false
+    }
+  },
+  {
+    "id": 38,
+    "name": "Pinterest",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple official sources (Independent Source 1, 2, 8) confirm that OAuth 2.0 is the required and primary authentication method for accessing Pinterest APIs."
+      },
+      "access_type": {
+        "status": "contradicted",
+        "reason": "While developer accounts are required (Original Source 4, Independent Source 7), the process involves creating an application and submitting it for review/approval by the Pinterest platform team to gain access, indicating a controlled or partner-required access type, not simply self-serve."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "Official documentation (Independent Source 12) describes REST API v5 endpoints. While GraphQL is mentioned in conceptual schemas and third-party tools (Independent Source 4, 5), the official core API type documented for functionality is REST."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the existence of an official Python SDK provided by Pinterest that supports campaign management and simplifies authentication (Original Source 5, Independent Source 10, Independent Source 11)."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The API documentation lists a wide range of core functions including Conversion Tracking, Content Management, Ads Management, Targeting, Shopping, and Analytics & reporting (Original Source 2, Independent Source 12)."
+      },
+      "mcp_status": {
+        "status": "contradicted",
+        "reason": "While Pinterest is actively developing and deploying MCP for AI agents (Independent Source 13), the evidence shows this is an internal or advanced/experimental feature. The researcher claims it indicates an 'official integration path' which is contradicted by the fact that third-party tools are using external implementations, and the core API documentation does not list MCP as a standard official offering."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The process requires creating an app, obtaining credentials (Original Source 4, Independent Source 7), and following documented OAuth flows (Independent Source 1, 2, 8), making it buildable with the necessary constraints."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "Multiple sources indicate that after initial setup, the application must be submitted for review and approval by the Pinterest developer team to gain full access (Original Source 4, Independent Source 7)."
+      }
+    },
+    "corrections": {
+      "access_type": "partner_approval",
+      "api_types": [
+        "REST"
+      ],
+      "mcp_status": "third_party"
+    }
+  },
+  {
+    "id": 39,
+    "name": "Threads (Meta)",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple official and reputable sources confirm that the API uses OAuth 2.0 authentication with user access tokens (e.g., Independent Source 1, 3, 7)."
+      },
+      "access_type": {
+        "status": "contradicted",
+        "reason": "The researcher claims 'admin_approval' is required. While multiple sources confirm that Meta App Review and developer registration are necessary for full access (e.g., Original Source 6, Independent Source 2), the process can be initiated by creating a developer account and obtaining credentials, suggesting it is not solely dependent on high-level admin approval to begin development or testing."
+      },
+      "api_types": {
+        "status": "supported",
+        "reason": "Multiple sources describe the API using RESTful conventions (e.g., Independent Source 1, 5). No evidence suggests other primary API types like GraphQL are used by Meta for this service."
+      },
+      "sdk_available": {
+        "status": "unsupported",
+        "reason": "While sources mention code examples and libraries in various languages (e.g., Independent Source 1, 3), there is no evidence of an official client library or SDK provided by Meta for the Threads API."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The documentation and developer guides confirm broad functionality covering content creation (posts, carousels), reply management, profile retrieval, media insights, and account insights (e.g., Original Source 3, Independent Source 9)."
+      },
+      "mcp_status": {
+        "status": "contradicted",
+        "reason": "The researcher lists 'third_party' MCP status. However, the official documentation confirms that Meta provides its own comprehensive API (Meta Graph API) for this service, making it an official/platform-managed resource rather than solely a third-party implementation."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "Multiple sources detail the necessary steps: creating a Meta developer app, obtaining tokens, and following the documented flow (e.g., Original Source 6, Independent Source 1). This confirms it is buildable with standard development practices."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "Multiple sources confirm that developer registration, app review, and specific permissions are required to access the API fully (e.g., Original Source 7, Independent Source 2). The requirement for Meta App Review acts as a significant blocker."
+      }
+    },
+    "corrections": {
+      "access_type": "self_serve",
+      "mcp_status": "official"
+    }
+  },
+  {
+    "id": 81,
+    "name": "Stripe",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Multiple sources confirm API key usage (Original Source 4, Independent Source 2, Independent Source 3). OAuth 2.0 is also explicitly mentioned as an authentication method for user-on-behalf-of interactions (Original Source 6, Independent Source 1)."
+      },
+      "access_type": {
+        "status": "supported",
+        "reason": "The documentation details the process of creating and managing API keys in the Dashboard (Original Source 7, Independent Source 2), indicating a self-service developer experience."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "While Stripe's core API is described as REST, accepting form-encoded bodies and returning JSON responses (Original Source 2, Independent Source 5), the evidence does not confirm that Stripe provides a native GraphQL API. The mention of GraphQL in third-party contexts or general documentation should not be accepted as proof of an official API type."
+      },
+      "sdk_available": {
+        "status": "supported",
+        "reason": "Multiple sources confirm the availability of official SDKs for various languages (Original Source 5, Independent Source 3, Independent Source 10)."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "The documentation covers a vast range of financial operations, including payments, billing, subscriptions, and advanced features like fraud detection and treasury management (Independent Source 5, Independent Source 12), indicating broad API coverage."
+      },
+      "mcp_status": {
+        "status": "supported",
+        "reason": "Multiple sources confirm that Stripe hosts an official Model Context Protocol server at mcp.stripe.com, providing AI agent access (Original Source 1, Independent Source 9, Independent Source 12)."
+      },
+      "buildability": {
+        "status": "supported",
+        "reason": "The documentation provides clear instructions on API key management, SDK usage, and development environments, making the platform highly buildable for developers (Original Source 7, Independent Source 3, Independent Source 10)."
+      },
+      "blocker": {
+        "status": "supported",
+        "reason": "No evidence suggests any technical or operational blockers to using Stripe's APIs."
+      }
+    },
+    "corrections": {
+      "api_types": [
+        "REST"
+      ]
+    }
+  },
+  {
+    "id": 85,
+    "name": "iPayX",
+    "overall_status": "needs_correction",
+    "field_checks": {
+      "auth_methods": {
+        "status": "supported",
+        "reason": "Both original source 1 and independent source 2 discuss API keys/credentials for authentication. Independent Source 1 explicitly mentions using an 'APIKey string' and providing credentials (TokenExID and API key) for every call, confirming a form of API Key authentication."
+      },
+      "access_type": {
+        "status": "unsupported",
+        "reason": "The evidence confirms the existence of developer portals and APIs but does not provide sufficient information regarding the required access type (e.g., self-serve registration, partner approval, paid plan)."
+      },
+      "api_types": {
+        "status": "contradicted",
+        "reason": "Original Source 1 claims the API is RESTful. Independent Source 2 confirms the use of 'REST-JSON' for API calls (e.g., PUT Authenticate Payer). There is no evidence suggesting other types like GraphQL."
+      },
+      "sdk_available": {
+        "status": "unsupported",
+        "reason": "While multiple independent sources discuss SDKs or developer tools, none of the provided evidence explicitly confirms an official client library (SDK) for iPayX's specific API that is available to developers."
+      },
+      "api_breadth": {
+        "status": "supported",
+        "reason": "Original Source 2 states the platform supports global payouts in over 180 countries with multi-currency support, indicating a broad scope of functionality and geographical reach."
+      },
+      "mcp_status": {
+        "status": "unsupported",
+        "reason": "None of the original or independently retrieved sources mention Model Context Protocol (MCP) in relation to iPayX's services. The independent sources discussing MCP are general industry examples and not specific to this application."
+      },
+      "buildability": {
+        "status": "unsupported",
+        "reason": "While documentation exists, the evidence does not confirm that a developer can realistically obtain all necessary credentials (e.g., API keys, merchant IDs) or complete the setup process required for building an integration."
+      },
+      "blocker": {
+        "status": "unsupported",
+        "reason": "No information is provided in the evidence to determine if there are any blockers preventing development or usage of the API."
+      }
+    },
+    "corrections": {
+      "api_types": [
+        "REST"
+      ],
+      "sdk_available": null,
+      "access_type": null,
+      "mcp_status": "none_found",
+      "buildability": "unknown",
+      "blocker": "None"
+    }
+  }
+]
