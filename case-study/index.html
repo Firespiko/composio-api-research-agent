@@ -1,1700 +1,1145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Composio API Research Agent</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description"
+        content="Composio API Research Agent — automated research, verification and integration-readiness analysis across 100 applications.">
+    <title>Composio API Research Agent — Case Study</title>
 
     <style>
+        :root {
+            --bg: #f5f5f1;
+            --surface: #fff;
+            --ink: #151515;
+            --muted: #666;
+            --line: #deded7;
+            --soft: #ecece6;
+            --dark: #171717;
+            --blue: #2457ff;
+            --green: #18733a;
+            --amber: #946200;
+            --red: #b42318;
+            --radius: 16px;
+            --shadow: 0 8px 30px rgba(0, 0, 0, .045);
+        }
+
         * {
-            box-sizing: border-box;
+            box-sizing: border-box
         }
 
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smooth
         }
 
         body {
             margin: 0;
-            font-family:
-                Inter,
-                ui-sans-serif,
-                system-ui,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                sans-serif;
-
-            background: #f7f7f5;
-            color: #171717;
-            line-height: 1.6;
+            background: var(--bg);
+            color: var(--ink);
+            font: 15px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif
         }
 
         a {
-            color: inherit;
+            color: inherit
         }
 
-        .container {
-            width: min(1120px, calc(100% - 40px));
-            margin: 0 auto;
+        .wrap {
+            width: min(1180px, calc(100% - 36px));
+            margin: auto
         }
 
-        /* ------------------------------------------------ */
-        /* NAV */
-        /* ------------------------------------------------ */
-
-        nav {
+        .topbar {
             position: sticky;
             top: 0;
-            z-index: 20;
-
-            border-bottom: 1px solid #deded9;
-            background: rgba(247, 247, 245, 0.92);
-            backdrop-filter: blur(12px);
+            z-index: 50;
+            background: rgba(245, 245, 241, .91);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line)
         }
 
-        .nav-inner {
-            height: 64px;
-
+        .topbar .inner {
+            height: 58px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-between
         }
 
-        .logo {
-            font-weight: 800;
-            letter-spacing: -0.03em;
+        .brand {
+            font-weight: 850;
+            letter-spacing: -.03em
         }
 
-        .nav-links {
+        .nav {
             display: flex;
-            gap: 22px;
-            font-size: 14px;
+            gap: 18px;
+            font-size: 13px
         }
 
-        .nav-links a {
+        .nav a {
             text-decoration: none;
-            color: #555;
+            color: var(--muted)
         }
 
-        .nav-links a:hover {
-            color: #111;
+        .nav a:hover {
+            color: var(--ink)
         }
-
-        /* ------------------------------------------------ */
-        /* HERO */
-        /* ------------------------------------------------ */
 
         .hero {
-            padding: 110px 0 90px;
-            border-bottom: 1px solid #deded9;
+            padding: 68px 0 44px
         }
 
         .eyebrow {
-            display: inline-block;
-
-            padding: 5px 10px;
-
-            border: 1px solid #d5d5d0;
+            display: inline-flex;
+            padding: 5px 9px;
+            border: 1px solid #d3d3cc;
             border-radius: 999px;
-
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-
-            color: #555;
-        }
-
-        h1 {
-            max-width: 850px;
-
-            margin: 22px 0;
-
-            font-size: clamp(44px, 7vw, 82px);
-            line-height: 0.98;
-            letter-spacing: -0.065em;
-        }
-
-        .hero-description {
-            max-width: 720px;
-
-            font-size: 20px;
-            color: #555;
-        }
-
-        .hero-meta {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-
-            margin-top: 34px;
-        }
-
-        .pill {
-            padding: 8px 13px;
-
-            border: 1px solid #d8d8d2;
-            border-radius: 999px;
-
-            font-size: 13px;
-            background: white;
-        }
-
-        /* ------------------------------------------------ */
-        /* SECTIONS */
-        /* ------------------------------------------------ */
-
-        section {
-            padding: 90px 0;
-            border-bottom: 1px solid #deded9;
-        }
-
-        .section-label {
-            margin-bottom: 12px;
-
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 800;
-            letter-spacing: 0.1em;
+            letter-spacing: .08em;
             text-transform: uppercase;
+            color: #555;
+            background: #fff
+        }
 
+        .hero h1 {
+            max-width: 940px;
+            font-size: clamp(43px, 6.5vw, 80px);
+            line-height: .97;
+            letter-spacing: -.065em;
+            margin: 18px 0
+        }
+
+        .hero .sub {
+            max-width: 810px;
+            font-size: 18px;
+            color: var(--muted);
+            margin: 0
+        }
+
+        .actions {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            margin-top: 24px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid #cfcfc8;
+            background: #fff;
+            text-decoration: none;
+            font-weight: 750;
+            font-size: 13px
+        }
+
+        .btn.primary {
+            background: var(--dark);
+            border-color: var(--dark);
+            color: #fff
+        }
+
+        .btn:hover {
+            transform: translateY(-1px)
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 28px
+        }
+
+        .stat {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 19px;
+            box-shadow: var(--shadow)
+        }
+
+        .stat .n {
+            font-size: 34px;
+            font-weight: 900;
+            letter-spacing: -.055em
+        }
+
+        .stat .l {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 2px
+        }
+
+        .section {
+            padding: 64px 0;
+            border-top: 1px solid var(--line)
+        }
+
+        .kicker {
+            font-size: 11px;
+            font-weight: 850;
+            letter-spacing: .1em;
+            text-transform: uppercase;
             color: #777;
+            margin-bottom: 8px
         }
 
-        h2 {
-            margin: 0 0 22px;
-
-            font-size: clamp(32px, 5vw, 52px);
-            line-height: 1.05;
-            letter-spacing: -0.045em;
-        }
-
-        h3 {
-            margin-top: 0;
-
-            font-size: 20px;
-            letter-spacing: -0.02em;
+        .section h2 {
+            font-size: clamp(30px, 4.2vw, 48px);
+            line-height: 1.04;
+            letter-spacing: -.045em;
+            margin: 0 0 14px
         }
 
         .lead {
-            max-width: 760px;
-
-            font-size: 18px;
-            color: #555;
+            max-width: 850px;
+            color: var(--muted);
+            font-size: 17px
         }
 
-        /* ------------------------------------------------ */
-        /* METRICS */
-        /* ------------------------------------------------ */
-
-        .metrics {
+        .headlines {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
-
-            margin-top: 45px;
+            margin-top: 27px
         }
 
-        .metric {
-            padding: 24px;
-
-            background: white;
-            border: 1px solid #deded9;
-            border-radius: 14px;
+        .headline {
+            background: var(--dark);
+            color: #fff;
+            border-radius: var(--radius);
+            padding: 23px
         }
 
-        .metric-number {
-            font-size: 38px;
-            font-weight: 800;
-            letter-spacing: -0.05em;
+        .headline .big {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: -.05em
         }
 
-        .metric-label {
-            margin-top: 4px;
-
-            font-size: 13px;
-            color: #666;
+        .headline p {
+            margin: 7px 0 0;
+            color: #c4c4c4;
+            font-size: 13px
         }
 
-        /* ------------------------------------------------ */
-        /* PIPELINE */
-        /* ------------------------------------------------ */
-
-        .pipeline {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-
-            margin-top: 45px;
-        }
-
-        .pipeline-step {
-            min-height: 150px;
-
-            padding: 20px;
-
-            background: white;
-            border: 1px solid #deded9;
-            border-radius: 14px;
-        }
-
-        .step-number {
-            margin-bottom: 30px;
-
-            font-size: 12px;
-            font-weight: 800;
-            color: #888;
-        }
-
-        .step-title {
-            font-weight: 800;
-        }
-
-        .step-description {
-            margin-top: 7px;
-
-            font-size: 13px;
-            color: #666;
-        }
-
-        /* ------------------------------------------------ */
-        /* GRIDS */
-        /* ------------------------------------------------ */
-
-        .two-column {
+        .cards2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 18px;
-
-            margin-top: 40px;
+            gap: 14px;
+            margin-top: 26px
         }
 
         .card {
-            padding: 28px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 23px;
+            box-shadow: var(--shadow)
+        }
 
-            background: white;
-            border: 1px solid #deded9;
-            border-radius: 14px;
+        .card h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+            letter-spacing: -.02em
         }
 
         .card p {
-            color: #666;
+            margin: 7px 0;
+            color: var(--muted)
         }
 
-        /* ------------------------------------------------ */
-        /* BAR CHARTS */
-        /* ------------------------------------------------ */
+        .card ul {
+            margin: 10px 0 0;
+            padding-left: 19px
+        }
 
-        .chart-grid {
+        .card li {
+            margin: 6px 0;
+            color: #444
+        }
+
+        .flow {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            margin-top: 28px
+        }
+
+        .step {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            padding: 16px;
+            min-height: 145px
+        }
+
+        .step b {
+            font-size: 10px;
+            color: #888;
+            letter-spacing: .06em
+        }
+
+        .step h3 {
+            font-size: 15px;
+            margin: 17px 0 5px
+        }
+
+        .step p {
+            font-size: 12px;
+            color: var(--muted);
+            margin: 0
+        }
+
+        .bars {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 18px;
-
-            margin-top: 40px;
+            gap: 14px;
+            margin-top: 26px
         }
 
-        .chart-card {
-            padding: 28px;
-
-            background: white;
-            border: 1px solid #deded9;
-            border-radius: 14px;
+        .barcard {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px
         }
 
-        .chart-title {
-            margin-bottom: 25px;
-
-            font-weight: 800;
+        .barcard h3 {
+            margin: 0 0 18px
         }
 
-        .bar-row {
-            margin: 15px 0;
+        .barrow {
+            margin: 12px 0
         }
 
-        .bar-header {
+        .barhead {
             display: flex;
             justify-content: space-between;
-
-            margin-bottom: 5px;
-
-            font-size: 13px;
+            font-size: 12px;
+            margin-bottom: 5px
         }
 
-        .bar-track {
+        .track {
             height: 8px;
-
-            overflow: hidden;
-
-            background: #e9e9e5;
-            border-radius: 999px;
+            background: #e8e8e2;
+            border-radius: 99px;
+            overflow: hidden
         }
 
-        .bar {
+        .fill {
             height: 100%;
-            background: #171717;
+            background: var(--ink);
+            border-radius: 99px
+        }
+
+        .matrix {
+            margin-top: 26px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden
+        }
+
+        .matrix-tools {
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            padding: 14px;
+            border-bottom: 1px solid var(--line);
+            background: #fbfbf8
+        }
+
+        .matrix-tools input,
+        .matrix-tools select {
+            border: 1px solid #d4d4cd;
+            background: #fff;
+            border-radius: 9px;
+            padding: 9px 10px;
+            font: inherit;
+            font-size: 13px
+        }
+
+        .matrix-tools input {
+            min-width: 260px;
+            flex: 1
+        }
+
+        .matrix-wrap {
+            overflow: auto;
+            max-height: 650px
+        }
+
+        .matrix table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1080px
+        }
+
+        .matrix th {
+            position: sticky;
+            top: 0;
+            background: #f1f1ec;
+            text-align: left;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            color: #666;
+            padding: 10px;
+            border-bottom: 1px solid var(--line);
+            white-space: nowrap
+        }
+
+        .matrix td {
+            padding: 9px 10px;
+            border-bottom: 1px solid #edede8;
+            font-size: 12px;
+            vertical-align: top
+        }
+
+        .matrix tr:hover td {
+            background: #fafaf7
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 3px 7px;
             border-radius: 999px;
+            background: var(--soft);
+            font-size: 10px;
+            font-weight: 750;
+            margin: 1px 2px 1px 0
         }
 
-        /* ------------------------------------------------ */
-        /* VERIFICATION */
-        /* ------------------------------------------------ */
+        .tag.good {
+            background: #e7f4e9;
+            color: var(--green)
+        }
 
-        .verification-box {
-            margin-top: 40px;
+        .tag.warn {
+            background: #fff2d7;
+            color: var(--amber)
+        }
 
-            padding: 32px;
+        .tag.bad {
+            background: #fde9e7;
+            color: var(--red)
+        }
 
-            background: #171717;
-            color: white;
+        .muted {
+            color: #888
+        }
 
+        .link {
+            color: var(--blue);
+            font-weight: 700;
+            text-decoration: none
+        }
+
+        .verify {
+            margin-top: 27px;
+            background: var(--dark);
+            color: #fff;
             border-radius: 18px;
+            padding: 27px
         }
 
-        .verification-number {
-            font-size: 64px;
-            font-weight: 800;
+        .verify-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px
+        }
+
+        .verify .number {
+            font-size: 63px;
             line-height: 1;
-
-            letter-spacing: -0.06em;
+            font-weight: 900;
+            letter-spacing: -.07em
         }
 
-        .verification-box p {
-            max-width: 700px;
-            color: #bbb;
+        .verify p {
+            color: #bcbcbc
         }
 
-        .correction-list {
-            margin-top: 25px;
-
+        .mini {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
+            gap: 8px;
+            margin-top: 19px
         }
 
-        .correction-item {
-            padding: 15px;
-
+        .mini div {
             border: 1px solid #3a3a3a;
-            border-radius: 10px;
-
             background: #222;
+            border-radius: 10px;
+            padding: 11px
         }
 
-        .correction-item strong {
+        .mini b {
             display: block;
-
-            font-size: 22px;
+            font-size: 20px
         }
 
-        .correction-item span {
-            font-size: 12px;
-            color: #aaa;
+        .mini span {
+            font-size: 10px;
+            color: #aaa
         }
 
-        /* ------------------------------------------------ */
-        /* CASE STUDIES */
-        /* ------------------------------------------------ */
+        .case-list {
+            margin-top: 24px
+        }
 
         .case {
-            padding: 24px 0;
-
-            border-top: 1px solid #deded9;
+            padding: 19px 0;
+            border-top: 1px solid var(--line)
         }
 
         .case:first-child {
-            border-top: 0;
+            border-top: 0
         }
 
-        .case-name {
-            font-size: 21px;
-            font-weight: 800;
+        .case-title {
+            font-size: 17px;
+            font-weight: 850
         }
 
-        .case-change {
-            margin-top: 7px;
-
-            font-size: 14px;
-            color: #666;
+        .change {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 3px
         }
 
-        .before-after {
+        .ba {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-
-            margin-top: 14px;
+            gap: 8px;
+            margin-top: 9px
         }
 
-        .before,
-        .after {
-            padding: 13px;
-
+        .ba div {
+            padding: 11px;
             border-radius: 9px;
-
-            font-size: 13px;
+            font-size: 12px;
+            background: #efefe9
         }
 
-        .before {
-            background: #f1f1ee;
+        .ba .after {
+            background: #e5e5df
         }
 
-        .after {
-            background: #e8e8e3;
-        }
-
-        .before strong,
-        .after strong {
+        .ba strong {
             display: block;
-            margin-bottom: 4px;
-
-            font-size: 11px;
+            font-size: 9px;
+            letter-spacing: .08em;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            margin-bottom: 3px
         }
 
-        /* ------------------------------------------------ */
-        /* LIMITATIONS */
-        /* ------------------------------------------------ */
-
-        .limitations {
+        .limit {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-
-            margin-top: 40px;
+            gap: 12px;
+            margin-top: 25px
         }
 
-        .limitation {
-            padding: 24px;
+        .limit .card {
+            min-height: 160px
+        }
 
-            background: white;
-            border: 1px solid #deded9;
+        .note {
+            padding: 14px 16px;
+            border-left: 3px solid #999;
+            background: #efefe9;
+            color: #555;
+            border-radius: 8px;
+            margin-top: 18px;
+            font-size: 12px
+        }
+
+        .code {
+            background: var(--dark);
+            color: #eee;
             border-radius: 14px;
+            padding: 20px;
+            overflow: auto;
+            margin-top: 22px;
+            font: 12px/1.7 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace
         }
 
-        .limitation-number {
-            font-size: 12px;
-            font-weight: 800;
-            color: #888;
+        .footer {
+            padding: 44px 0;
+            color: #777;
+            font-size: 12px
         }
 
-        /* ------------------------------------------------ */
-        /* CODE */
-        /* ------------------------------------------------ */
-
-        pre {
-            overflow-x: auto;
-
-            margin-top: 30px;
-            padding: 24px;
-
-            background: #171717;
-            color: #e9e9e9;
-
-            border-radius: 14px;
-
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        code {
-            font-family:
-                "SFMono-Regular",
-                Consolas,
-                "Liberation Mono",
-                monospace;
-        }
-
-        /* ------------------------------------------------ */
-        /* FOOTER */
-        /* ------------------------------------------------ */
-
-        footer {
-            padding: 55px 0;
-
-            color: #666;
-            font-size: 13px;
-        }
-
-        /* ------------------------------------------------ */
-        /* MOBILE */
-        /* ------------------------------------------------ */
-
-        @media (max-width: 850px) {
-
-            .nav-links {
-                display: none;
+        @media(max-width:920px) {
+            .stats {
+                grid-template-columns: 1fr 1fr
             }
 
-            .metrics {
-                grid-template-columns: 1fr 1fr;
+            .headlines,
+            .cards2,
+            .bars,
+            .verify-grid {
+                grid-template-columns: 1fr
             }
 
-            .pipeline {
-                grid-template-columns: 1fr;
+            .flow {
+                grid-template-columns: 1fr 1fr
             }
 
-            .two-column,
-            .chart-grid {
-                grid-template-columns: 1fr;
+            .mini {
+                grid-template-columns: repeat(3, 1fr)
             }
 
-            .correction-list {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .limitations {
-                grid-template-columns: 1fr;
+            .limit {
+                grid-template-columns: 1fr
             }
         }
 
-        @media (max-width: 550px) {
+        @media(max-width:600px) {
+            .wrap {
+                width: min(100% - 24px, 1180px)
+            }
 
-            .container {
-                width: min(100% - 28px, 1120px);
+            .nav {
+                display: none
             }
 
             .hero {
-                padding: 75px 0 65px;
+                padding-top: 48px
             }
 
-            section {
-                padding: 65px 0;
+            .stats {
+                grid-template-columns: 1fr
             }
 
-            .metrics {
-                grid-template-columns: 1fr;
+            .flow {
+                grid-template-columns: 1fr
             }
 
-            .before-after {
-                grid-template-columns: 1fr;
+            .mini {
+                grid-template-columns: 1fr 1fr
             }
 
-            .correction-list {
-                grid-template-columns: 1fr;
+            .ba {
+                grid-template-columns: 1fr
+            }
+
+            .hero h1 {
+                font-size: 44px
             }
         }
     </style>
 </head>
 
 <body>
-
-    <!-- ====================================================== -->
-    <!-- NAV -->
-    <!-- ====================================================== -->
-
-    <nav>
-        <div class="container nav-inner">
-
-            <div class="logo">
-                API Research Agent
-            </div>
-
-            <div class="nav-links">
-                <a href="#problem">Problem</a>
-                <a href="#pipeline">Pipeline</a>
+    <header class="topbar">
+        <div class="wrap inner">
+            <div class="brand">API Research Agent</div>
+            <nav class="nav">
                 <a href="#findings">Findings</a>
+                <a href="#agent">Agent</a>
+                <a href="#matrix">100-app matrix</a>
                 <a href="#verification">Verification</a>
-                <a href="#limitations">Limitations</a>
-            </div>
-
+                <a href="#method">Method</a>
+            </nav>
         </div>
-    </nav>
-
-
-    <!-- ====================================================== -->
-    <!-- HERO -->
-    <!-- ====================================================== -->
-
-    <header class="hero">
-
-        <div class="container">
-
-            <span class="eyebrow">
-                Composio Take-Home · Engineering Case Study
-            </span>
-
-            <h1>
-                Researching 100 APIs without researching them by hand.
-            </h1>
-
-            <p class="hero-description">
-                An automated research pipeline that retrieves developer
-                documentation, extracts structured API intelligence with
-                a local LLM, selectively verifies uncertain results, and
-                turns the evidence into integration-readiness insights.
-            </p>
-
-            <div class="hero-meta">
-
-                <span class="pill">
-                    100 applications
-                </span>
-
-                <span class="pill">
-                    Tavily retrieval
-                </span>
-
-                <span class="pill">
-                    Gemma extraction
-                </span>
-
-                <span class="pill">
-                    Confidence-gated verification
-                </span>
-
-                <span class="pill">
-                    Checkpointed pipeline
-                </span>
-
-            </div>
-
-        </div>
-
     </header>
 
+    <main>
 
-    <!-- ====================================================== -->
-    <!-- PROBLEM -->
-    <!-- ====================================================== -->
+        <section class="hero">
+            <div class="wrap">
+                <span class="eyebrow">Composio Take-Home · Engineering Case Study</span>
+                <h1>Researching 100 APIs without researching them by hand.</h1>
+                <p class="sub">
+                    A checkpointed research agent retrieves developer evidence, converts it into a
+                    normalized schema with a local LLM, independently challenges selected records,
+                    and exposes the resulting integration-readiness patterns.
+                </p>
 
-    <section id="problem">
+                <div class="actions">
+                    <a class="btn primary" href="https://github.com/Firespiko/composio-api-research-agent"
+                        target="_blank" rel="noreferrer">View source ↗</a>
+                    <a class="btn" href="#matrix">Inspect all researched apps ↓</a>
+                    <a class="btn" href="#verification">See hits & misses ↓</a>
+                </div>
 
-        <div class="container">
-
-            <div class="section-label">
-                01 · Problem
+                <div class="stats" id="stats">
+                    <div class="stat">
+                        <div class="n">100</div>
+                        <div class="l">apps in target set</div>
+                    </div>
+                    <div class="stat">
+                        <div class="n">98</div>
+                        <div class="l">researched successfully</div>
+                    </div>
+                    <div class="stat">
+                        <div class="n">33</div>
+                        <div class="l">independently verified</div>
+                    </div>
+                    <div class="stat">
+                        <div class="n">78.8%</div>
+                        <div class="l">verified apps with ≥1 correction</div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <h2>
-                The bottleneck is not finding APIs.
-                It's turning inconsistent documentation into comparable data.
-            </h2>
+        <section id="findings" class="section">
+            <div class="wrap">
+                <div class="kicker">01 · Findings first</div>
+                <h2>Three patterns a reviewer can understand in 20 seconds.</h2>
+                <p class="lead">
+                    These are descriptive aggregates from 98 successful research records. They show
+                    what the dataset contains; they are not rankings of vendors.
+                </p>
 
-            <p class="lead">
-                Across 100 applications, authentication, credential access,
-                API protocols, SDK availability, MCP support and buildability
-                are documented in very different ways. A manual workflow would
-                require repeatedly searching, reading, interpreting and
-                recording the same classes of information.
-            </p>
-
-            <div class="metrics">
-
-                <div class="metric">
-                    <div class="metric-number">100</div>
-                    <div class="metric-label">
-                        applications in the research set
+                <div class="headlines">
+                    <div class="headline">
+                        <div class="big">REST: 95 / 98</div>
+                        <p>REST appears in almost every researched record. GraphQL appears in 23.</p>
+                    </div>
+                    <div class="headline">
+                        <div class="big">OAuth2: 68 / 98</div>
+                        <p>OAuth2 is the most frequently recorded authentication method, followed by bearer tokens at
+                            60.</p>
+                    </div>
+                    <div class="headline">
+                        <div class="big">39 unknown access</div>
+                        <p>Credential-access classification is the largest uncertainty: self-serve 26, paid plan 16,
+                            admin approval 13.</p>
                     </div>
                 </div>
 
-                <div class="metric">
-                    <div class="metric-number">98</div>
-                    <div class="metric-label">
-                        applications successfully researched
+                <div class="bars">
+                    <div class="barcard">
+                        <h3>Authentication methods</h3>
+                        <div id="auth-chart"></div>
+                    </div>
+                    <div class="barcard">
+                        <h3>Credential access</h3>
+                        <div id="access-chart"></div>
                     </div>
                 </div>
-
-                <div class="metric">
-                    <div class="metric-number">33</div>
-                    <div class="metric-label">
-                        independently verified
-                    </div>
-                </div>
-
-                <div class="metric">
-                    <div class="metric-number">2</div>
-                    <div class="metric-label">
-                        research failures
-                    </div>
-                </div>
-
             </div>
+        </section>
 
-        </div>
+        <section id="agent" class="section">
+            <div class="wrap">
+                <div class="kicker">02 · The agent</div>
+                <h2>Automate the repetitive work. Keep judgment explicit.</h2>
+                <p class="lead">
+                    Retrieval, extraction, verification and analysis are separate stages. Each
+                    research result is checkpointed, so an API/search failure does not force a
+                    complete restart.
+                </p>
 
-    </section>
+                <div class="flow">
+                    <div class="step"><b>01 · INPUT</b>
+                        <h3>100 apps</h3>
+                        <p>Load app names, categories and research hints.</p>
+                    </div>
+                    <div class="step"><b>02 · RETRIEVE</b>
+                        <h3>Tavily</h3>
+                        <p>Two targeted searches for API, auth and credential evidence.</p>
+                    </div>
+                    <div class="step"><b>03 · EXTRACT</b>
+                        <h3>Gemma</h3>
+                        <p>Local model produces validated structured fields.</p>
+                    </div>
+                    <div class="step"><b>04 · CHECKPOINT</b>
+                        <h3>JSON state</h3>
+                        <p>Persist research results incrementally for resumability.</p>
+                    </div>
+                    <div class="step"><b>05 · VERIFY</b>
+                        <h3>Independent pass</h3>
+                        <p>Separate retrieval + model comparison finds disagreements.</p>
+                    </div>
+                    <div class="step"><b>06 · ANALYZE</b>
+                        <h3>Case study</h3>
+                        <p>Aggregate results and expose the complete research matrix.</p>
+                    </div>
+                </div>
 
+                <div class="cards2">
+                    <div class="card">
+                        <h3>What the agent does</h3>
+                        <ul>
+                            <li>Searches for developer/API/authentication evidence.</li>
+                            <li>Ranks and deduplicates retrieved evidence.</li>
+                            <li>Extracts auth, access, API, SDK, MCP and buildability fields.</li>
+                            <li>Validates the output against a strict schema.</li>
+                            <li>Runs independent verification and records corrections.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Where a human is still needed</h3>
+                        <ul>
+                            <li>Define the research schema and what counts as evidence.</li>
+                            <li>Set verification policy and confidence thresholds.</li>
+                            <li>Review disputed/ambiguous records and source quality.</li>
+                            <li>Interpret aggregate patterns and decide what merits follow-up.</li>
+                            <li>Audit failures instead of silently converting missing evidence into facts.</li>
+                        </ul>
+                    </div>
+                </div>
 
-    <!-- ====================================================== -->
-    <!-- PIPELINE -->
-    <!-- ====================================================== -->
-
-    <section id="pipeline">
-
-        <div class="container">
-
-            <div class="section-label">
-                02 · Agent architecture
+                <div class="note">
+                    <strong>Important implementation note:</strong> this current artifact uses Tavily for
+                    retrieval and a local Gemma model for extraction. It does not claim a Composio SDK/MCP
+                    integration that is not actually implemented in the submitted code.
+                </div>
             </div>
+        </section>
 
-            <h2>
-                Retrieval → extraction → verification → analysis
-            </h2>
+        <section id="matrix" class="section">
+            <div class="wrap">
+                <div class="kicker">03 · Final output</div>
+                <h2>The 100-app matrix is the deliverable.</h2>
+                <p class="lead">
+                    Search and filter the generated research records. Every row exposes the same
+                    fields so a reviewer can compare applications without reading the prose above.
+                    Unknown values stay unknown.
+                </p>
 
-            <p class="lead">
-                The system separates evidence collection from reasoning.
-                This makes the pipeline resumable, auditable and easier to
-                improve than a single prompt-driven workflow.
-            </p>
-
-            <div class="pipeline">
-
-                <div class="pipeline-step">
-
-                    <div class="step-number">
-                        01
+                <div class="matrix">
+                    <div class="matrix-tools">
+                        <input id="search" placeholder="Search app, category, auth, API, MCP…">
+                        <select id="cat">
+                            <option value="">All categories</option>
+                        </select>
+                        <select id="build">
+                            <option value="">All buildability</option>
+                            <option value="buildable">Buildable</option>
+                            <option value="buildable_with_constraints">With constraints</option>
+                            <option value="unknown">Unknown</option>
+                        </select>
+                        <span id="count" class="muted" style="align-self:center;font-size:12px"></span>
                     </div>
-
-                    <div class="step-title">
-                        App registry
+                    <div class="matrix-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>App</th>
+                                    <th>Category</th>
+                                    <th>Auth</th>
+                                    <th>Access</th>
+                                    <th>API</th>
+                                    <th>SDK</th>
+                                    <th>MCP</th>
+                                    <th>Buildability</th>
+                                    <th>Confidence</th>
+                                    <th>Evidence</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rows">
+                                <tr>
+                                    <td colspan="10">Loading research_results.json…</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-
-                    <div class="step-description">
-                        Load the 100 applications and their research hints.
-                    </div>
-
                 </div>
-
-                <div class="pipeline-step">
-
-                    <div class="step-number">
-                        02
-                    </div>
-
-                    <div class="step-title">
-                        Retrieval
-                    </div>
-
-                    <div class="step-description">
-                        Search for official API, authentication and
-                        credential documentation.
-                    </div>
-
-                </div>
-
-                <div class="pipeline-step">
-
-                    <div class="step-number">
-                        03
-                    </div>
-
-                    <div class="step-title">
-                        Extraction
-                    </div>
-
-                    <div class="step-description">
-                        Gemma converts evidence into a strict structured
-                        research schema.
-                    </div>
-
-                </div>
-
-                <div class="pipeline-step">
-
-                    <div class="step-number">
-                        04
-                    </div>
-
-                    <div class="step-title">
-                        Verification
-                    </div>
-
-                    <div class="step-description">
-                        Low-confidence or selected results receive an
-                        independent evidence pass.
-                    </div>
-
-                </div>
-
-                <div class="pipeline-step">
-
-                    <div class="step-number">
-                        05
-                    </div>
-
-                    <div class="step-title">
-                        Analysis
-                    </div>
-
-                    <div class="step-description">
-                        Aggregate the records into integration-readiness
-                        patterns.
-                    </div>
-
-                </div>
-
             </div>
+        </section>
 
-            <pre><code>apps.json
-    │
-    ▼
-Tavily retrieval
-    │
-    ▼
-Evidence ranking + deduplication
-    │
-    ▼
-Gemma structured extraction
-    │
-    ▼
-research_results.json
-    │
-    ├── high confidence ──────────────┐
-    │                                 │
-    └── verification required        │
-                    │                 │
-                    ▼                 │
-             independent search      │
-                    │                 │
-                    ▼                 │
-             verifier / corrections  │
-                    │                 │
-                    └────────┬────────┘
-                             ▼
+        <section class="section">
+            <div class="wrap">
+                <div class="kicker">04 · Integration surface</div>
+                <h2>Technical accessibility is high; access conditions are more variable.</h2>
+
+                <div class="cards2">
+                    <div class="card">
+                        <h3>API surface</h3>
+                        <div id="api-chart"></div>
+                    </div>
+                    <div class="card">
+                        <h3>MCP availability</h3>
+                        <div id="mcp-chart"></div>
+                    </div>
+                    <div class="card">
+                        <h3>SDK availability</h3>
+                        <p><strong>40 / 98</strong> records were marked as having an SDK; 27 were marked false. Some
+                            records remain unspecified.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Buildability</h3>
+                        <div id="buildability-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="verification" class="section">
+            <div class="wrap">
+                <div class="kicker">05 · Verification — hits & misses</div>
+                <h2>The first pass was useful — and demonstrably imperfect.</h2>
+                <p class="lead">
+                    An independent evidence pass covered 33 of the 98 researched records.
+                    26 of those 33 contained at least one actual field-level correction.
+                    This is a correction rate within the verified set, not a population accuracy estimate.
+                </p>
+
+                <div class="verify">
+                    <div class="verify-grid">
+                        <div>
+                            <div class="number">26 / 33</div>
+                            <div>verified records with ≥1 correction</div>
+                            <p>
+                                Verification coverage: 33 / 98 (33.7%). The set is not random, so the
+                                78.8% correction rate should not be extrapolated to all 100 apps.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="number">5</div>
+                            <div>field types with observed corrections</div>
+                            <p>
+                                API type and access classification were the most frequently corrected
+                                fields, followed by MCP status, blockers and SDK availability.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mini">
+                        <div><b>13</b><span>API type corrections</span></div>
+                        <div><b>13</b><span>access corrections</span></div>
+                        <div><b>5</b><span>MCP corrections</span></div>
+                        <div><b>5</b><span>blocker corrections</span></div>
+                        <div><b>3</b><span>SDK corrections</span></div>
+                    </div>
+                </div>
+
+                <div class="case-list">
+                    <div class="case">
+                        <div class="case-title">Salesforce — API surface under-described</div>
+                        <div class="change">A concrete miss: the first pass stopped at REST + GraphQL.</div>
+                        <div class="ba">
+                            <div><strong>First pass</strong>REST + GraphQL</div>
+                            <div class="after"><strong>Verification</strong>REST + GraphQL + Bulk 2.0 + Streaming API
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case">
+                        <div class="case-title">Pipedrive — access classification changed</div>
+                        <div class="change">The independent pass challenged both access and API-type fields.</div>
+                        <div class="ba">
+                            <div><strong>First pass</strong>Paid plan · REST + GraphQL</div>
+                            <div class="after"><strong>Verification</strong>Self-serve · REST</div>
+                        </div>
+                    </div>
+
+                    <div class="case">
+                        <div class="case-title">Pylon — multiple classification changes</div>
+                        <div class="change">Access, API type and MCP status were corrected.</div>
+                        <div class="ba">
+                            <div><strong>First pass</strong>Admin approval · GraphQL + REST · third-party MCP</div>
+                            <div class="after"><strong>Verification</strong>Self-serve · REST · official MCP</div>
+                        </div>
+                    </div>
+
+                    <div class="case">
+                        <div class="case-title">Copper — SDK availability was missed</div>
+                        <div class="change">A binary field changed after the independent check.</div>
+                        <div class="ba">
+                            <div><strong>First pass</strong>Official SDK: false</div>
+                            <div class="after"><strong>Verification</strong>Official SDK: true</div>
+                        </div>
+                    </div>
+
+                    <div class="case">
+                        <div class="case-title">iPayX — uncertainty remained</div>
+                        <div class="change">The lowest-confidence researched record was not forced into a stronger
+                            conclusion.</div>
+                        <div class="ba">
+                            <div><strong>Research confidence</strong>0.70</div>
+                            <div class="after"><strong>Outcome</strong>No material field change after verification</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="method" class="section">
+            <div class="wrap">
+                <div class="kicker">06 · Method & honesty</div>
+                <h2>What the system proves — and what it does not.</h2>
+
+                <div class="limit">
+                    <div class="card">
+                        <h3>98 / 100 coverage</h3>
+                        <p>98 applications produced research records. Two target applications were not successfully
+                            researched in the current run.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Verification is a quality signal</h3>
+                        <p>The 33-record verification set is not random. Its correction rate demonstrates that the
+                            second stage can expose disagreements; it is not a measured error rate for the whole
+                            dataset.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Evidence quality varies</h3>
+                        <p>The retriever prefers developer/API-looking sources, but that heuristic is not proof of
+                            official ownership. Production use should audit source quality and timestamps.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Confidence is triage</h3>
+                        <p>Model confidence is used to decide where to spend verification effort. It is not calibrated
+                            probability of correctness.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Documentation changes</h3>
+                        <p>API docs, pricing and credential requirements change. Evidence URLs should be retained and
+                            rechecked when this becomes a production workflow.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Failure handling</h3>
+                        <p>Search failures are isolated per app/query and successful records are checkpointed.
+                            Completeness is therefore visible rather than hidden.</p>
+                    </div>
+                </div>
+
+                <div class="code">apps.json
+                    ↓
+                    Tavily retrieval
+                    ↓
+                    evidence ranking + deduplication
+                    ↓
+                    Gemma structured extraction
+                    ↓
+                    research_results.json
+                    ↓
+                    confidence-gated / selected verification
+                    ↓
+                    verification_results.json
+                    ↓
                     analysis_summary.json
-                             │
-                             ▼
-                       case study</code></pre>
+                    ↓
+                    this case study</div>
 
+                <div class="note">
+                    <strong>Reproduce:</strong>
+                    <code>python -m src.main</code> →
+                    <code>python -m src.analyzer</code> →
+                    <code>python -m http.server 8000</code> →
+                    open <code>/case-study/</code>.
+                    See the repository for environment configuration and source code.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="wrap">
+            <strong>Composio API Research Agent</strong> ·
+            100-app target set · 98 research records · 33 independently verified records ·
+            <a class="link" href="https://github.com/Firespiko/composio-api-research-agent" target="_blank"
+                rel="noreferrer">source repository ↗</a>
         </div>
-
-    </section>
-
-
-    <!-- ====================================================== -->
-    <!-- FINDINGS -->
-    <!-- ====================================================== -->
-
-    <section id="findings">
-
-        <div class="container">
-
-            <div class="section-label">
-                03 · Findings
-            </div>
-
-            <h2>
-                What the 98 researched applications revealed
-            </h2>
-
-            <p class="lead">
-                The extracted dataset shows a strong concentration around
-                REST APIs and OAuth-based authentication, while credential
-                access is substantially more heterogeneous.
-            </p>
-
-            <div class="chart-grid">
-
-                <div class="chart-card">
-
-                    <div class="chart-title">
-                        Authentication methods
-                    </div>
-
-                    <div id="auth-chart"></div>
-
-                </div>
-
-
-                <div class="chart-card">
-
-                    <div class="chart-title">
-                        Credential access
-                    </div>
-
-                    <div id="access-chart"></div>
-
-                </div>
-
-
-                <div class="chart-card">
-
-                    <div class="chart-title">
-                        API protocols
-                    </div>
-
-                    <div id="api-chart"></div>
-
-                </div>
-
-
-                <div class="chart-card">
-
-                    <div class="chart-title">
-                        MCP status
-                    </div>
-
-                    <div id="mcp-chart"></div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ====================================================== -->
-    <!-- BUILDABILITY -->
-    <!-- ====================================================== -->
-
-    <section>
-
-        <div class="container">
-
-            <div class="section-label">
-                04 · Integration readiness
-            </div>
-
-            <h2>
-                Most APIs were technically accessible,
-                but constraints still mattered.
-            </h2>
-
-            <div class="two-column">
-
-                <div class="card">
-
-                    <h3>
-                        64 applications
-                    </h3>
-
-                    <p>
-                        were classified as <strong>buildable</strong>
-                        from the available evidence.
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>
-                        33 applications
-                    </h3>
-
-                    <p>
-                        were classified as
-                        <strong>buildable with constraints</strong>,
-                        indicating additional access or implementation
-                        considerations.
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="chart-card" style="margin-top:18px;">
-
-                <div class="chart-title">
-                    Buildability
-                </div>
-
-                <div id="buildability-chart"></div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ====================================================== -->
-    <!-- VERIFICATION -->
-    <!-- ====================================================== -->
-
-    <section id="verification">
-
-        <div class="container">
-
-            <div class="section-label">
-                05 · Verification
-            </div>
-
-            <h2>
-                Independent evidence exposed meaningful disagreements.
-            </h2>
-
-            <p class="lead">
-                Verification was performed against a separate search pass.
-                The verifier compared the research record against additional
-                evidence and produced field-level corrections where necessary.
-            </p>
-
-            <div class="verification-box">
-
-                <div class="verification-number">
-                    26 / 33
-                </div>
-
-                <p>
-                    independently verified applications contained at least
-                    one actual field-level discrepancy between the original
-                    research result and the verification result.
-                </p>
-
-                <div class="correction-list">
-
-                    <div class="correction-item">
-                        <strong>13</strong>
-                        <span>API type corrections</span>
-                    </div>
-
-                    <div class="correction-item">
-                        <strong>13</strong>
-                        <span>Access corrections</span>
-                    </div>
-
-                    <div class="correction-item">
-                        <strong>5</strong>
-                        <span>MCP corrections</span>
-                    </div>
-
-                    <div class="correction-item">
-                        <strong>5</strong>
-                        <span>Blocker corrections</span>
-                    </div>
-
-                    <div class="correction-item">
-                        <strong>3</strong>
-                        <span>SDK corrections</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="card" style="margin-top:18px;">
-
-                <h3>
-                    Verification coverage: 33 / 98
-                </h3>
-
-                <p>
-                    The verification set is not treated as a random sample.
-                    These results are therefore used to demonstrate the
-                    pipeline's ability to detect discrepancies rather than
-                    to estimate the error rate of the entire 100-app dataset.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ====================================================== -->
-    <!-- EXAMPLES -->
-    <!-- ====================================================== -->
-
-    <section>
-
-        <div class="container">
-
-            <div class="section-label">
-                06 · Verification examples
-            </div>
-
-            <h2>
-                What changed when evidence was challenged?
-            </h2>
-
-
-            <div class="card">
-
-                <div class="case">
-
-                    <div class="case-name">
-                        Pipedrive
-                    </div>
-
-                    <div class="case-change">
-                        Two fields changed during independent verification.
-                    </div>
-
-                    <div class="before-after">
-
-                        <div class="before">
-                            <strong>Research</strong>
-                            Access: paid_plan<br>
-                            API: REST + GraphQL
-                        </div>
-
-                        <div class="after">
-                            <strong>Verified</strong>
-                            Access: self_serve<br>
-                            API: REST
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="case">
-
-                    <div class="case-name">
-                        Copper
-                    </div>
-
-                    <div class="case-change">
-                        SDK availability changed after verification.
-                    </div>
-
-                    <div class="before-after">
-
-                        <div class="before">
-                            <strong>Research</strong>
-                            Official SDK: false
-                        </div>
-
-                        <div class="after">
-                            <strong>Verified</strong>
-                            Official SDK: true
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="case">
-
-                    <div class="case-name">
-                        Pylon
-                    </div>
-
-                    <div class="case-change">
-                        Access, API type and MCP status were corrected.
-                    </div>
-
-                    <div class="before-after">
-
-                        <div class="before">
-                            <strong>Research</strong>
-                            Admin approval<br>
-                            GraphQL + REST<br>
-                            Third-party MCP
-                        </div>
-
-                        <div class="after">
-                            <strong>Verified</strong>
-                            Self-serve<br>
-                            REST<br>
-                            Official MCP
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="case">
-
-                    <div class="case-name">
-                        Stripe
-                    </div>
-
-                    <div class="case-change">
-                        The API protocol classification changed.
-                    </div>
-
-                    <div class="before-after">
-
-                        <div class="before">
-                            <strong>Research</strong>
-                            REST + GraphQL
-                        </div>
-
-                        <div class="after">
-                            <strong>Verified</strong>
-                            REST
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="case">
-
-                    <div class="case-name">
-                        Salesforce
-                    </div>
-
-                    <div class="case-change">
-                        Verification expanded the documented API surface.
-                    </div>
-
-                    <div class="before-after">
-
-                        <div class="before">
-                            <strong>Research</strong>
-                            REST + GraphQL
-                        </div>
-
-                        <div class="after">
-                            <strong>Verified</strong>
-                            REST + GraphQL + Bulk 2.0 +
-                            Streaming API
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ====================================================== -->
-    <!-- PATTERNS -->
-    <!-- ====================================================== -->
-
-    <section>
-
-        <div class="container">
-
-            <div class="section-label">
-                07 · Patterns
-            </div>
-
-            <h2>
-                Three patterns emerged from the dataset.
-            </h2>
-
-            <div class="limitations">
-
-                <div class="limitation">
-
-                    <div class="limitation-number">
-                        01
-                    </div>
-
-                    <h3>
-                        REST dominates
-                    </h3>
-
-                    <p>
-                        REST appeared in 95 of the 98 researched records,
-                        making it the dominant API protocol in this dataset.
-                    </p>
-
-                </div>
-
-
-                <div class="limitation">
-
-                    <div class="limitation-number">
-                        02
-                    </div>
-
-                    <h3>
-                        Authentication is rarely uniform
-                    </h3>
-
-                    <p>
-                        OAuth2, bearer tokens, API keys and API tokens
-                        frequently coexist across the application set.
-                    </p>
-
-                </div>
-
-
-                <div class="limitation">
-
-                    <div class="limitation-number">
-                        03
-                    </div>
-
-                    <h3>
-                        Credential access is the less certain layer
-                    </h3>
-
-                    <p>
-                        39 research records were classified as unknown
-                        for credential access, showing why documentation
-                        discovery alone is insufficient.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ====================================================== -->
-    <!-- METHODOLOGY -->
-    <!-- ====================================================== -->
-
-    <section>
-
-        <div class="container">
-
-            <div class="section-label">
-                08 · Methodology
-            </div>
-
-            <h2>
-                Designed as a reproducible research system.
-            </h2>
-
-            <div class="two-column">
-
-                <div class="card">
-
-                    <h3>
-                        Evidence first
-                    </h3>
-
-                    <p>
-                        The language model receives retrieved evidence and
-                        is instructed to ground structured fields in that
-                        evidence rather than relying on unsupported assumptions.
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>
-                        Checkpointing
-                    </h3>
-
-                    <p>
-                        Research and verification results are persisted
-                        incrementally. A failed request does not require
-                        restarting the complete 100-app run.
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>
-                        Structured schema
-                    </h3>
-
-                    <p>
-                        Each application is normalized into authentication,
-                        access, API, SDK, MCP, breadth, buildability,
-                        blocker and evidence fields.
-                    </p>
-
-                </div>
-
-                <div class="card">
-
-                    <h3>
-                        Independent verification
-                    </h3>
-
-                    <p>
-                        Verification uses a separate search pass so that
-                        the second stage is not simply repeating the first
-                        model's evidence interpretation.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ====================================================== -->
-    <!-- LIMITATIONS -->
-    <!-- ====================================================== -->
-
-    <section id="limitations">
-
-        <div class="container">
-
-            <div class="section-label">
-                09 · Limitations
-            </div>
-
-            <h2>
-                What the current system does not claim.
-            </h2>
-
-            <div class="limitations">
-
-                <div class="limitation">
-
-                    <div class="limitation-number">
-                        01
-                    </div>
-
-                    <h3>
-                        Confidence is not calibrated probability
-                    </h3>
-
-                    <p>
-                        The extraction model frequently produced high confidence
-                        values. These scores are therefore used for triage,
-                        not interpreted as measured probabilities of correctness.
-                    </p>
-
-                </div>
-
-
-                <div class="limitation">
-
-                    <div class="limitation-number">
-                        02
-                    </div>
-
-                    <h3>
-                        Verification is not a random sample
-                    </h3>
-
-                    <p>
-                        Only 33 applications were independently verified.
-                        The observed correction rate should not be extrapolated
-                        to all 100 applications.
-                    </p>
-
-                </div>
-
-
-                <div class="limitation">
-
-                    <div class="limitation-number">
-                        03
-                    </div>
-
-                    <h3>
-                        Documentation changes
-                    </h3>
-
-                    <p>
-                        API documentation, pricing and access requirements
-                        can change. Evidence URLs and timestamps are therefore
-                        important for production use.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ====================================================== -->
-    <!-- REPOSITORY -->
-    <!-- ====================================================== -->
-
-    <section>
-
-        <div class="container">
-
-            <div class="section-label">
-                10 · Reproducibility
-            </div>
-
-            <h2>
-                The case study is generated from the pipeline's outputs.
-            </h2>
-
-            <p class="lead">
-                The repository separates data, retrieval, extraction,
-                verification, analysis and presentation so each stage can
-                be inspected independently.
-            </p>
-
-            <pre><code>composio-api-research-agent/
-├── case-study/
-│   └── index.html
-├── data/
-│   └── apps.json
-├── prompts/
-│   ├── research_prompt.txt
-│   └── verification_prompt.txt
-├── results/
-│   ├── research_results.json
-│   ├── verification_results.json
-│   └── analysis_summary.json
-├── src/
-│   ├── analyzer.py
-│   ├── main.py
-│   ├── researcher.py
-│   ├── search.py
-│   ├── schema.py
-│   └── verifier.py
-└── README.md</code></pre>
-
-        </div>
-
-    </section>
-
-
-    <!-- ====================================================== -->
-    <!-- FOOTER -->
-    <!-- ====================================================== -->
-
-    <footer>
-
-        <div class="container">
-
-            Composio API Research Agent · Engineering Case Study
-
-            <br><br>
-
-            Research dataset: 100 applications ·
-            98 successful research records ·
-            33 independently verified records
-
-        </div>
-
     </footer>
 
-
-    <!-- ====================================================== -->
-    <!-- CHART LOGIC -->
-    <!-- ====================================================== -->
-
     <script>
+        const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        const arr = v => Array.isArray(v) ? v : (v == null || v === '' ? [] : [v]);
 
-        async function loadAnalysis() {
+        function tag(v, cls = '') {
+            return `<span class="tag ${cls}">${esc(v)}</span>`;
+        }
 
+        function renderBars(id, obj, total) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.innerHTML = Object.entries(obj || {})
+                .sort((a, b) => b[1] - a[1])
+                .map(([k, v]) => `
+      <div class="barrow">
+        <div class="barhead">
+          <span>${esc(k)}</span>
+          <b>${v} <span class="muted">(${(v / total * 100).toFixed(1)}%)</span></b>
+        </div>
+        <div class="track"><div class="fill" style="width:${Math.min(100, v / total * 100)}%"></div></div>
+      </div>`).join('');
+        }
+
+        function renderTable(data) {
+            const q = document.getElementById('search').value.toLowerCase();
+            const cat = document.getElementById('cat').value;
+            const build = document.getElementById('build').value;
+
+            const filtered = data.filter(r => {
+                const hay = JSON.stringify(r).toLowerCase();
+                return (!q || hay.includes(q)) && (!cat || r.category === cat) && (!build || r.buildability === build);
+            });
+
+            document.getElementById('count').textContent = `${filtered.length} of ${data.length} records`;
+
+            document.getElementById('rows').innerHTML = filtered.map(r => {
+                const ev = arr(r.evidence)[0];
+                const access = r.access_type || 'unknown';
+                const buildability = r.buildability || 'unknown';
+                const mcp = r.mcp_status || 'unknown';
+
+                return `<tr>
+      <td><strong>${esc(r.name)}</strong></td>
+      <td>${esc(r.category || '—')}</td>
+      <td>${arr(r.auth_methods).map(x => tag(x)).join(' ') || '<span class="muted">—</span>'}</td>
+      <td>${tag(access, access === 'self_serve' ? 'good' : access === 'unknown' ? 'warn' : '')}</td>
+      <td>${arr(r.api_types).map(x => tag(x)).join(' ') || '<span class="muted">—</span>'}</td>
+      <td>${r.sdk_available === true ? tag('yes', 'good') : r.sdk_available === false ? tag('no') : tag('unknown', 'warn')}</td>
+      <td>${tag(mcp, mcp === 'official' ? 'good' : mcp === 'unknown' ? 'warn' : '')}</td>
+      <td>${tag(buildability, buildability === 'buildable' ? 'good' : buildability === 'unknown' ? 'warn' : '')}</td>
+      <td>${r.confidence == null ? '—' : (Number(r.confidence) * 100).toFixed(0) + '%'}</td>
+      <td>${ev?.url ? `<a class="link" href="${esc(ev.url)}" target="_blank" rel="noreferrer">source ↗</a>` : '—'}</td>
+    </tr>`;
+            }).join('') || '<tr><td colspan="10" class="muted">No records match the current filters.</td></tr>';
+        }
+
+        async function main() {
             try {
+                const [analysis, research] = await Promise.all([
+                    fetch('../results/analysis_summary.json').then(r => r.json()),
+                    fetch('../results/research_results.json').then(r => r.json())
+                ]);
 
-                const response =
-                    await fetch("../results/analysis_summary.json");
+                const n = analysis.research_count || research.length;
 
-                const data =
-                    await response.json();
+                document.getElementById('stats').innerHTML = `
+      <div class="stat"><div class="n">100</div><div class="l">apps in target set</div></div>
+      <div class="stat"><div class="n">${analysis.research_count}</div><div class="l">researched successfully</div></div>
+      <div class="stat"><div class="n">${analysis.verification_count}</div><div class="l">independently verified</div></div>
+      <div class="stat"><div class="n">${Number(analysis.correction_rate).toFixed(1)}%</div><div class="l">verified apps with ≥1 correction</div></div>`;
 
-                renderChart(
-                    "auth-chart",
-                    data.authentication
-                );
+                renderBars('auth-chart', analysis.authentication, n);
+                renderBars('access-chart', analysis.access, n);
+                renderBars('api-chart', analysis.api_types, n);
+                renderBars('mcp-chart', analysis.mcp, n);
+                renderBars('buildability-chart', analysis.buildability, n);
 
-                renderChart(
-                    "access-chart",
-                    data.access
-                );
+                const cats = [...new Set(research.map(x => x.category).filter(Boolean))].sort();
+                document.getElementById('cat').innerHTML =
+                    '<option value="">All categories</option>' +
+                    cats.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join('');
 
-                renderChart(
-                    "api-chart",
-                    data.api_types
-                );
+                ['search', 'cat', 'build'].forEach(id => {
+                    document.getElementById(id).addEventListener('input', () => renderTable(research));
+                    document.getElementById(id).addEventListener('change', () => renderTable(research));
+                });
 
-                renderChart(
-                    "mcp-chart",
-                    data.mcp
-                );
-
-                renderChart(
-                    "buildability-chart",
-                    data.buildability
-                );
-
-            } catch (error) {
-
-                console.error(
-                    "Could not load analysis_summary.json:",
-                    error
-                );
-
+                renderTable(research);
+            } catch (e) {
+                document.getElementById('rows').innerHTML =
+                    `<tr><td colspan="10">Could not load generated data. Serve the repository through a web server. ${esc(e.message)}</td></tr>`;
+                console.error(e);
             }
-
         }
-
-
-        function renderChart(
-            elementId,
-            values
-        ) {
-
-            const container =
-                document.getElementById(elementId);
-
-            if (!container) {
-                return;
-            }
-
-            const entries =
-                Object.entries(values)
-                    .sort(
-                        (a, b) => b[1] - a[1]
-                    );
-
-            const max =
-                entries.length
-                    ? entries[0][1]
-                    : 1;
-
-            container.innerHTML = "";
-
-            for (
-                const [label, value]
-                of entries
-            ) {
-
-                const row =
-                    document.createElement("div");
-
-                row.className =
-                    "bar-row";
-
-                const header =
-                    document.createElement("div");
-
-                header.className =
-                    "bar-header";
-
-                header.innerHTML = `
-            <span>${label}</span>
-            <span>${value}</span>
-        `;
-
-                const track =
-                    document.createElement("div");
-
-                track.className =
-                    "bar-track";
-
-                const bar =
-                    document.createElement("div");
-
-                bar.className =
-                    "bar";
-
-                bar.style.width =
-                    `${(value / max) * 100}%`;
-
-                track.appendChild(bar);
-
-                row.appendChild(header);
-                row.appendChild(track);
-
-                container.appendChild(row);
-            }
-
-        }
-
-
-        loadAnalysis();
-
+        main();
     </script>
-
 </body>
 
 </html>
