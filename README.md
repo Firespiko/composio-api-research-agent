@@ -7,7 +7,7 @@ The system researches authentication methods, credential accessibility, API prot
 ## Case Study
 
 **Live case study:**
-`[https://firespiko.github.io/composio-api-research-agent/case-study/]`
+[Case Study Link](https://firespiko.github.io/composio-api-research-agent/case-study/)
 
 The case study presents the research methodology, pipeline architecture, findings, verification results, limitations, and integration-readiness patterns.
 
